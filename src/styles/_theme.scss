@@ -2,27 +2,36 @@
 
 .header {
   transition: all 0.8s ease;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: $nav-background-light;
   a {
     transition: color 0.2s ease-in-out;
-    color: #424040;
+    color: $dark-gray;
     &.route--active {
-      color: #1b1a1a;
+      color: $off-black;
     }
     &:hover {
-      color: lighten(#424040, 15%);
+      color: lighten($dark-gray, 15%);
     }
   }
   &.dark {
-    background-color: $nav-background;
+    background-color: $nav-background-dark;
     a {
-      color: $nav-foreground;
+      color: $nav-foreground-dark;
       &.route--active {
-        color: white;
+        color: $off-white;
       }
       &:hover {
-        color: lighten($nav-foreground, 15%);
+        color: lighten($nav-foreground-dark, 15%);
       }
+    }
+  }
+}
+
+.home-top {
+  .profile-container {
+    h2 {
+      color: $off-white;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
     }
   }
 }
