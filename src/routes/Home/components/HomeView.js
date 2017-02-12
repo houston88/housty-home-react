@@ -1,17 +1,21 @@
 import React from 'react'
 import { Parallax, Background } from 'react-parallax';
+import Card from '../../../components/Card';
 import DuckImage from '../assets/Duck.jpg';
-import AlaskaImage from '../assets/alaska.jpg';
+import TetonsImage from '../assets/tetons.jpg';
 import FamilyImage from '../assets/family.jpg';
+import PhotosAlbumImage from '../assets/vancouver_cropped.jpg';
+import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg';
+import YouTubeImage from '../assets/new_mex_cropped.png';
 import './HomeView.scss';
 
 // pure render component
 export const HomeView = (props) => (
   <div className='home-top'>
 
-    <Parallax strength={200} blur={2}>
+    <Parallax strength={-400} blur={2}>
       <Background>
-        <img src={AlaskaImage}/>
+        <img src={TetonsImage}/>
       </Background>
       <div className='profile-container'>
         <img
@@ -19,10 +23,30 @@ export const HomeView = (props) => (
           className='profile-image'
           src={FamilyImage} />
         <h2>Harris Family Launch Pad</h2>
+        <h3>photos and related sites</h3>
       </div>
     </Parallax>
 
     <div className='container'>
+
+      <div className='cards'>
+        <Card
+          image={PhotosAlbumImage}
+          brand='google'
+          url='https://get.google.com/albumarchive/109571831393986720016'
+          label='Google Photo Albums' />
+        <Card
+          image={FacebookAlbumImage}
+          brand='facebook'
+          url='https://www.facebook.com/housty.harris/photos'
+          label='Facebook Photo Albums' />
+        <Card
+          image={YouTubeImage}
+          brand='youtube'
+          url='https://www.youtube.com/user/houstyharris/videos'
+          label='Family YouTube Channel' />
+      </div>
+
       <h4>Welcome!</h4>
       <img
         alt='This is a duck, because Redux!'
