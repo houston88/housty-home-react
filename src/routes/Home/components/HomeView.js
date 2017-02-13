@@ -1,7 +1,7 @@
 import React from 'react'
 import { Parallax, Background } from 'react-parallax'
 import Card from '../../../components/Card'
-import TetonsImage from '../assets/tetons.jpg'
+import ParallaxTopImage from '../assets/buchart_gardens_sm.jpg'
 import FamilyImage from '../assets/family.jpg'
 import PhotosAlbumImage from '../assets/vancouver_cropped.jpg'
 import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg'
@@ -18,10 +18,7 @@ import './HomeView.scss'
 export const HomeView = (props) => (
   <div className='home-top'>
 
-    <Parallax strength={-400} blur={2}>
-      <Background>
-        <img src={TetonsImage} alt='Header image' />
-      </Background>
+    <Parallax strength={300} bgImage={ParallaxTopImage}>
       <div className='profile-container'>
         <img
           alt='Harris Family'
