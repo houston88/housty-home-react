@@ -12,10 +12,22 @@
   position: relative;
   .card-image {
     height: 260px;
+    overflow: hidden;
     img {
       height: 100%;
     }
   }
+  @media (max-width: 768px) {
+    max-width: 95%;
+    width: 95%;
+    .card-image {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
   a:hover {
     .card-desc {
       height: 3.8em;

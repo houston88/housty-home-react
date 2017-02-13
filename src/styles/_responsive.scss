@@ -1,0 +1,9 @@
+$mobile-width-min: 481px;
+$tablet-width-min: 768px;
+$desktop-width-min: 1002px;
+
+@media(max-width: $tablet-width-min) {
+  .container {
+    width: 100%;
+  }
+}

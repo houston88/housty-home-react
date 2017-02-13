@@ -7,6 +7,12 @@ import FamilyImage from '../assets/family.jpg';
 import PhotosAlbumImage from '../assets/vancouver_cropped.jpg';
 import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg';
 import YouTubeImage from '../assets/new_mex_cropped.png';
+import DebiPhotosAlbumImage from '../assets/fall.jpg';
+import DebiFacebookImage from '../assets/new_york.jpg';
+import AngelaYouTubeImage from '../assets/angela_debi_pueblo.jpg';
+import AngelaDeviantArtImage from '../assets/marzz.png';
+import BensArtImage from '../assets/elcap_benart.jpg';
+import GunungBonitoImage from '../assets/lng_ship_boston.jpg';
 import './HomeView.scss';
 
 // pure render component
@@ -34,38 +40,48 @@ export const HomeView = (props) => (
           image={PhotosAlbumImage}
           brand='google'
           url='https://get.google.com/albumarchive/109571831393986720016'
-          label='Google Photo Albums' />
+          label='Houston&#39;s Google Photos' />
         <Card
           image={FacebookAlbumImage}
           brand='facebook'
           url='https://www.facebook.com/housty.harris/photos'
-          label='Facebook Photo Albums' />
+          label='Houston&#39;s Facebook Photos' />
+        <Card
+          image={DebiPhotosAlbumImage}
+          brand='google'
+          url='https://get.google.com/albumarchive/112758650498152815622'
+          label='Debi&#39;s Google Photos' />
+        <Card
+          image={DebiFacebookImage}
+          brand='facebook'
+          url='https://www.facebook.com/debi.s.harris/photos'
+          label='Debi&#39;s Facebook Photos' />
         <Card
           image={YouTubeImage}
           brand='youtube'
           url='https://www.youtube.com/user/houstyharris/videos'
-          label='Family YouTube Channel' />
+          label='Houston&#39;s YouTube Channel' />
+        <Card
+          image={AngelaYouTubeImage}
+          brand='youtube'
+          url='https://www.youtube.com/channel/UCL7F8JE0grX_3v__KWqcbmg/videos'
+          label='Angela&#39;s YouTube Channel' />
+        <Card
+          image={AngelaDeviantArtImage}
+          brand='deviantart'
+          url='http://ghostsky.deviantart.com/gallery/'
+          label='Angela&#39;s Deviant Art' />
+        <Card
+          image={BensArtImage}
+          brand='squarespace'
+          url='http://bensartorius.com/'
+          label='Ben Sartorius Art' />
+        <Card
+          image={GunungBonitoImage}
+          brand='squarespace'
+          url='http://www.gunungbonito.com/'
+          label='Gunung Bonito Services' />
       </div>
-
-      <h4>Welcome!</h4>
-      <img
-        alt='This is a duck, because Redux!'
-        className='duck'
-        src={DuckImage} />
-
-      <p>
-        For Literature, the students are writing a compare/contrast essay
-        for A Single Shard (Korea) and Matilda Bone (England).  I have
-        attached a document with new instructions for that paper, due
-        February 23.  Also, they should be reading and listening to Good
-        Masters! Sweet Ladies!  The Plano Library system has both the book
-        and audio.  The assignment for this book is not to write an essay,
-        but rather to recite a memorized piece which can be either one of
-        the monologues or dialogues in the book or an alternate piece of
-        your (the teacher's) choosing.  However, the recitation should be
-        about 3 minutes long.  The recitation will be on March 16, the
-        week after Spring Break.
-      </p>
 
     </div>
 

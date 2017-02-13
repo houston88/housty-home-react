@@ -1,7 +1,7 @@
 // theme the app, we can use variables here...
 
 body {
-  background-color: #f9f9f9;
+  background-color: $almost-white;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -39,6 +39,17 @@ a {
   }
 }
 
+.footer-image {
+  background-color: $almost-white;
+  .overlay {
+    background-color: rgba(249, 249, 249,0.5);
+  }
+}
+.footer-text {
+  color: $off-white;
+  background-color: $nav-background-dark;
+}
+
 .home-top {
   .profile-container {
     h2, h3 {
@@ -62,6 +73,11 @@ a {
         background-color: $google-blue;
       }
     }
+    &.squarespace {
+      .service-logo {
+        background-color: $off-white;
+      }
+    }
   }
   // hover color effects
   a:hover {
@@ -75,6 +91,12 @@ a {
       }
       &.youtube {
         color: $youtube-red;
+      }
+      &.deviantart {
+        color: $deviant-green;
+      }
+      &.squarespace {
+        color: $light-gray;
       }
     }
   }
