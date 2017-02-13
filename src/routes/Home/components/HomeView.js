@@ -1,19 +1,18 @@
 import React from 'react'
-import { Parallax, Background } from 'react-parallax';
-import Card from '../../../components/Card';
-import DuckImage from '../assets/Duck.jpg';
-import TetonsImage from '../assets/tetons.jpg';
-import FamilyImage from '../assets/family.jpg';
-import PhotosAlbumImage from '../assets/vancouver_cropped.jpg';
-import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg';
-import YouTubeImage from '../assets/new_mex_cropped.png';
-import DebiPhotosAlbumImage from '../assets/fall.jpg';
-import DebiFacebookImage from '../assets/new_york.jpg';
-import AngelaYouTubeImage from '../assets/angela_debi_pueblo.jpg';
-import AngelaDeviantArtImage from '../assets/marzz.png';
-import BensArtImage from '../assets/elcap_benart.jpg';
-import GunungBonitoImage from '../assets/lng_ship_boston.jpg';
-import './HomeView.scss';
+import { Parallax, Background } from 'react-parallax'
+import Card from '../../../components/Card'
+import TetonsImage from '../assets/tetons.jpg'
+import FamilyImage from '../assets/family.jpg'
+import PhotosAlbumImage from '../assets/vancouver_cropped.jpg'
+import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg'
+import YouTubeImage from '../assets/new_mex_cropped.png'
+import DebiPhotosAlbumImage from '../assets/fall.jpg'
+import DebiFacebookImage from '../assets/new_york.jpg'
+import AngelaYouTubeImage from '../assets/angela_debi_pueblo.jpg'
+import AngelaDeviantArtImage from '../assets/marzz.png'
+import BensArtImage from '../assets/elcap_benart.jpg'
+import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
+import './HomeView.scss'
 
 // pure render component
 export const HomeView = (props) => (
@@ -21,7 +20,7 @@ export const HomeView = (props) => (
 
     <Parallax strength={-400} blur={2}>
       <Background>
-        <img src={TetonsImage}/>
+        <img src={TetonsImage} />
       </Background>
       <div className='profile-container'>
         <img

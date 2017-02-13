@@ -11,7 +11,7 @@
 .footer-image {
   position: relative;
   z-index: -100;
-  //filter: blur(5px);
+  //filter: blur(2px);
   background-image: url('./assets/white_sands_alt.jpg');
   background-position: top;
   background-size: cover;
@@ -20,7 +20,6 @@
   margin-top: -510px;
   .overlay {
     z-index: -99;
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
