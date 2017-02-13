@@ -18,6 +18,5 @@ describe('(View) Home', () => {
   it('Renders a header image', () => {
     const headerImage = _component.find('img')
     expect(headerImage).to.exist
-    expect(headerImage.attr('alt')).to.match(/Header image/)
   })
 })
