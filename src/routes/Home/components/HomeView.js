@@ -1,5 +1,5 @@
 import React from 'react'
-import { Parallax, Background } from 'react-parallax'
+import { Parallax } from 'react-parallax'
 import Card from '../../../components/Card'
 import ParallaxTopImage from '../assets/buchart_gardens_sm.jpg'
 import FamilyImage from '../assets/family.jpg'
