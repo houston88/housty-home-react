@@ -20,7 +20,7 @@ export const HomeView = (props) => (
 
     <Parallax strength={-400} blur={2}>
       <Background>
-        <img src={TetonsImage} />
+        <img src={TetonsImage} alt='Header image' />
       </Background>
       <div className='profile-container'>
         <img
