@@ -18,8 +18,10 @@ a {
   background-color: $nav-background-light;
   a {
     color: $dark-gray;
+    border-bottom: 1px solid transparent;
     &.route--active {
       color: $off-black;
+      border-bottom: 2px solid $google-blue;
     }
     &:hover {
       color: lighten($dark-gray, 15%);
@@ -99,5 +101,23 @@ a {
         color: $light-gray;
       }
     }
+  }
+}
+
+.resume {
+  font-family: Inconsolata;
+  h1, h2, h3 {
+    font-family: Rubik;
+  }
+  .card {
+    background-color: $off-white;
+  }
+  .top-panel {
+    color: $off-white;
+    background-color: $nav-background-dark;
+  }
+  .border-panel {
+    color: $dark-gray;
+    background-color: $almost-white-transparent;
   }
 }
