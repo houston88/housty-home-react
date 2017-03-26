@@ -1,6 +1,7 @@
 import React from 'react'
 import YouTubeLogoImage from './assets/youtube.png'
 import DeviantArtLogoImage from './assets/deviantart.jpg'
+import InstagramLogoImage from './assets/instagram.png'
 import './Card.scss'
 
 class Card extends React.Component {
@@ -31,6 +32,12 @@ class Card extends React.Component {
           <img
             alt='Deviant Art'
             src={DeviantArtLogoImage} />
+        </div>
+      case 'instagram':
+        return <div className='service-logo white-rounded-bg'>
+          <img
+            alt='Instagram'
+            src={InstagramLogoImage} />
         </div>
       case 'squarespace':
         return <div className='service-logo'>

@@ -4,7 +4,12 @@
     margin: 0.2em 0;
   }
   section {
-    padding: 12px;
+    padding: 8px 12px;
+  }
+  ul {
+    list-style-position: inside;
+    padding: 0;
+    margin: 6px 0;
   }
   .card {
     max-width: 100%;
@@ -30,6 +35,22 @@
     }
     .name {
       flex: 3 1 auto;
+      display: flex;
+      @media (max-width: 481px) {
+        padding-bottom: 8px;
+      }
+      .name-container {
+        height: 130px;
+        border-radius: 3px;
+        background-image: url(../assets/housty.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left top;
+        h2 {
+          margin: 0;
+          padding: 3px;
+        }
+      }
     }
     .contact {
       flex: 0 1 auto;
@@ -38,24 +59,6 @@
       }
       a {
         display: block;
-      }
-    }
-  }
-  .qual-experience {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    .qualifications {
-      flex: 1 1 60%;
-      padding-right: 12px;
-      min-width: 400px;
-      margin-bottom: 12px;
-    }
-    .experience {
-      flex: 1 1 auto;
-      > div {
-        // white-space: nowrap;
       }
     }
   }
@@ -73,6 +76,6 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 }
