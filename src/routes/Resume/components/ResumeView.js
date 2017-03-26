@@ -32,8 +32,8 @@ export const ResumeView = (props) => (
                 <span> http://housty.io</span>
               </a>
               <span>
-                  <FontAwesome name='map-pin' />
-                  <span> Plano, TX</span>
+                <FontAwesome name='map-pin' />
+                <span> Plano, TX</span>
               </span>
             </div>
           </div>
@@ -77,9 +77,9 @@ export const ResumeView = (props) => (
           </ul>
         </section>
 
-        <div className='experienceTable'></div>
-        <div className='education'></div>
-        <div className='misc'></div>
+        <div className='experienceTable' />
+        <div className='education' />
+        <div className='misc' />
       </div>
 
     </div>

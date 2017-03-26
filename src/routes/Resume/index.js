@@ -13,6 +13,6 @@ export default (store) => ({
       cb(null, Resume)
 
     /* Webpack named bundle   */
-  }, 'resume')
+    }, 'resume')
   }
 })
