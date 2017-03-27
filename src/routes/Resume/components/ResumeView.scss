@@ -4,7 +4,8 @@
     margin: 0.2em 0;
   }
   section {
-    padding: 8px 12px;
+    margin: 8px 12px;
+    padding: 0 0 6px 0;
   }
   ul {
     padding-left: 14px;
@@ -19,6 +20,8 @@
     padding-bottom: 12px;
   }
   .top-panel {
+    padding: 12px;
+    margin: 0;
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
@@ -41,15 +44,21 @@
         padding-bottom: 8px;
       }
       .name-container {
-        height: 130px;
+        height: 156px;
+        width: 156px;
         border-radius: 3px;
         background-image: url(../assets/housty.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left top;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
         h2 {
           margin: 0;
           padding: 3px;
+          border: 3px;
+          display: inline-block;
         }
       }
     }

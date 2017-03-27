@@ -111,7 +111,9 @@ a {
   }
   section {
     h3 {
-      border-bottom: 1px solid $google-blue;
+      border-bottom: 2px solid $google-blue;
+      padding: 4px;
+      background-color: $lighter-gray-transparent;
     }
   }
   .card {
@@ -127,7 +129,7 @@ a {
   }
   .name {
     h2 {
-      background-color: $nav-background-dark;;
+      background-color: $gray-transparent;
     }
   }
 }

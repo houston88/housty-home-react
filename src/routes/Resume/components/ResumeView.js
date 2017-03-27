@@ -97,27 +97,25 @@ export const ResumeView = (props) => (
           </ul>
         </section>
         <section>
-          <label>2009 - 2011 : Raytheon Prop Fusion Project</label>
+          <label>2007 - 2009 : Raytheon DCGS Project</label>
           <ul>
-            <li>Grails web applications on Tomcat</li>
-            <li>JavaScript: Prototype, Scriptaculous, Dojo, jQuery</li>
-            <li>PostgreSQL with PostGIS spatial, PgSQL functions</li>
-            <li>Solr Lucene Text Index, SolrJ, Nutch</li>
-            <li>Data Fusion, Analytics, Hadoop cluster</li>
+            <li>SW Lead, Java, JSP, JavaScript, Dojo, DWR, Portlets</li>
+            <li>JEE application using Oracle Weblogic</li>
+            <li>Application Data Security, Sun LDAP and Solaris</li>
           </ul>
         </section>
         <section>
-          <label>2000 - 2009 : Raytheon Various Projects</label>
+          <label>2000 - 2007 : Raytheon Various Projects</label>
           <ul>
             <li>Roles from SW Dev, SW Lead and Tech Lead</li>
             <li>Technologies ranging from C++, Oracle PS/SQL, Networking, Java
-              Swing and ESRI product.</li>
+              Swing and ESRI products.</li>
           </ul>
         </section>
 
         <section>
           <h3>Education</h3>
-          <b>University of Tulsa</b>- B.S. Computer Science, Math minor 1999
+          <b>University of Tulsa</b> - B.S. Computer Science, Math minor 1999
         </section>
 
         <section>
