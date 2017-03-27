@@ -73,13 +73,59 @@ export const ResumeView = (props) => (
             <li>Full stack development utilizing JavaScript, HTML, CSS, Java</li>
             <li>React, Angular, Highcharts, d3, Node.js, Webpack, Grunt, Gulp, Npm, Bower</li>
             <li>Java Spring RESTful web services</li>
-            <li>Cassandra data layer</li>
+            <li>Cassandra</li>
+          </ul>
+        </section>
+        <section>
+          <label>2011 - 2013 : Raytheon IDS-D Project</label>
+          <ul>
+            <li>JEE Applications on JBoss 6</li>
+            <li>AngularJs, jQuery, Twitter Bootstrap</li>
+            <li>Data Visualization using DataTables and jqPlot</li>
+            <li>RestEasy, MongoDB, Hibernate/JPA, JAXB</li>
+            <li>Apache Pivot, Vaadin, Active MQ</li>
+          </ul>
+        </section>
+        <section>
+          <label>2009 - 2011 : Raytheon Prop Fusion Project</label>
+          <ul>
+            <li>Grails web applications on Tomcat</li>
+            <li>JavaScript: Prototype, Scriptaculous, Dojo, jQuery</li>
+            <li>PostgreSQL with PostGIS spatial, PgSQL functions</li>
+            <li>Solr Lucene Text Index, SolrJ, Nutch</li>
+            <li>Data Fusion, Analytics, Hadoop cluster</li>
+          </ul>
+        </section>
+        <section>
+          <label>2009 - 2011 : Raytheon Prop Fusion Project</label>
+          <ul>
+            <li>Grails web applications on Tomcat</li>
+            <li>JavaScript: Prototype, Scriptaculous, Dojo, jQuery</li>
+            <li>PostgreSQL with PostGIS spatial, PgSQL functions</li>
+            <li>Solr Lucene Text Index, SolrJ, Nutch</li>
+            <li>Data Fusion, Analytics, Hadoop cluster</li>
+          </ul>
+        </section>
+        <section>
+          <label>2000 - 2009 : Raytheon Various Projects</label>
+          <ul>
+            <li>Roles from SW Dev, SW Lead and Tech Lead</li>
+            <li>Technologies ranging from C++, Oracle PS/SQL, Networking, Java
+              Swing and ESRI product.</li>
           </ul>
         </section>
 
-        <div className='experienceTable' />
-        <div className='education' />
-        <div className='misc' />
+        <section>
+          <h3>Education</h3>
+          <b>University of Tulsa</b>- B.S. Computer Science, Math minor 1999
+        </section>
+
+        <section>
+          <h3>Leadership/Hobbies</h3>
+          PMI Project Management Professional Certified, EVMS Level 2,
+          Recreational soccer player, mountain biking, traveling. 
+        </section>
+
       </div>
 
     </div>

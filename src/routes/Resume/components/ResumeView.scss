@@ -7,8 +7,7 @@
     padding: 8px 12px;
   }
   ul {
-    list-style-position: inside;
-    padding: 0;
+    padding-left: 14px;
     margin: 6px 0;
   }
   .card {
@@ -17,11 +16,13 @@
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 12px;
   }
   .top-panel {
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
+    background-image: url(../assets/buchart_bg.jpg);
     .border-panel {
       padding: 12px;
       border-radius: 3px;
