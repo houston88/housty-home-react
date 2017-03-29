@@ -17,7 +17,7 @@ export const ResumeView = (props) => (
             <div className='border-panel'>
               <a href='tel:2144763629'>
                 <FontAwesome name='phone' />
-                <span> (214)476-3629</span>
+                <span> (214) 476-3629</span>
               </a>
               <a href='mailto:houstyharris@gmail.com'>
                 <FontAwesome name='envelope' />
@@ -57,12 +57,10 @@ export const ResumeView = (props) => (
           <div className='experience'>
             <h3>Experience</h3>
             <div>
-              <span><b>Intuit</b>, ProConnect Group </span>
-              <u>2013 - Present</u>
+              <b>Intuit</b>, ProConnect Group <u>2013 - Present</u>
             </div>
             <div> 
-              <span><b>Raytheon Company</b>, IIS </span>
-              <u>2000 - 2013</u>
+              <b>Raytheon Company</b>, IIS <u>2000 - 2013</u>
             </div>
           </div>
         </section>
