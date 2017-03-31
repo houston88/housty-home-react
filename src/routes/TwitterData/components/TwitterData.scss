@@ -1,9 +1,10 @@
 .twitter-data {
+  padding: 0 12px;
   .container {
     text-align: left;
   }
   h2 {
-    margin-bottom: 8px;
+    margin: 2px 0 8px;
   }
   .range-control {
     display: flex;
@@ -21,8 +22,26 @@
       margin: 4px 0;
       width: 100%;
     }
-
-
   }
-
+  #data-map {
+    max-width: 1200px;
+    margin-bottom: 8px;
+  }
+  .state-list-container {
+    .state-list {
+      padding: 4px;
+      margin: 2px 4px 2px 0;
+      border-radius: 3px;
+      display: inline-block;
+    }
+  }
+  #hashtag-bubbles {
+    max-width: 1200px;
+    margin-bottom: 8px;
+  }
+  #happy-bar {
+    position: relative;
+    max-width: 1200px;
+    margin-bottom: 8px;
+  }
 }
