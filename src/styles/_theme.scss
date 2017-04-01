@@ -139,6 +139,9 @@ a {
   h1,h2,h3,h4,h5 {
     font-family: Pacifico;
   }
+  section {
+    background-color: $lighter-gray-transparent;
+  }
   .state-list-container {
     .state-list {
       color: white;

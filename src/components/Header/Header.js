@@ -39,15 +39,15 @@ class Header extends React.Component {
         <IndexLink to='/' activeClassName='route--active'>
           Home
         </IndexLink>
-        <Link to='/resume' activeClassName='route--active'>
-          Resume
-        </Link>
         <Link to='/twitter-data' activeClassName='route--active'>
           Twitter Data
         </Link>
-        <Link to='/counter' activeClassName='route--active'>
-          Counter
+        <Link to='/resume' activeClassName='route--active'>
+          Resume
         </Link>
+        {/*<Link to='/counter' activeClassName='route--active'>
+          Counter
+        </Link>*/}
       </div>
     )
   }

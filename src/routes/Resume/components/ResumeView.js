@@ -118,8 +118,8 @@ export const ResumeView = (props) => (
 
         <section>
           <h3>Leadership/Hobbies</h3>
-          PMI Project Management Professional Certified, EVMS Level 2,
-          Recreational soccer player, mountain biking, traveling. 
+          PMI Project management professional certified, EVMS level 2,
+          recreational soccer player, mountain biking, traveling. 
         </section>
 
       </div>

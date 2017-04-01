@@ -34,7 +34,7 @@ class TwitterData extends React.Component {
   }
 
   renderTop10States() {
-    let statesTable = [];
+    let statesTable = [], sorted = [];
     if (this.props.twitterData.selectedIndex) {
       this.states.forEach(state => {
         if (this.props.twitterData.detailedData[state]) {
@@ -45,13 +45,18 @@ class TwitterData extends React.Component {
           })
         }
       })
-      statesTable.sort((a, b) => {
+      sorted = statesTable.sort((a, b) => {
+        if (typeof a.rank !== 'number' & typeof b.rank === 'number') {
+          return +1
+        } else if (typeof b.rank !== 'number' & typeof a.rank === 'number') {
+          return -1
+        }
         return a.rank - b.rank
       })
     }
     return (
       <div className='state-list-container'>
-        { statesTable.slice(0,10).map(stateItem => {
+        { sorted.slice(0,10).map(stateItem => {
             return <span
               key={stateItem.state}
               className='state-list'>
@@ -93,41 +98,51 @@ class TwitterData extends React.Component {
     return (
       <div className='twitter-data'>
         <div className='container'>
-          <h2>Happiest States Twitter Data</h2>
-          <div className='range-control'>
-            <label>Based on 10 minutes of 1% Twitter stream from {selectedDateLabel}</label>
-            <input type="range"
-              min="0" max={dateSelectionsLength-1}
-              step="1"
-              value={this.props.twitterData.selectedIndex}
-              onChange={this.onChange} />
-          </div>
-          <div className='muted'>
-            Positive scores are positive vibes. Negative scopes are... well, sad vibes.
-            Based on <a href='http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010'>AFINN-111</a>
-          </div>
-          { this.renderTop10States() }
-          { this.props.twitterData.selectedIndex
-            ? <DataMap mapData={ this.props.twitterData.detailedData } />
-            : '' }
+          <section>
+            <h2>Happiest States Twitter Data</h2>
+            <div className='range-control'>
+              <label>Based on 10 minutes of 1% Twitter stream from {selectedDateLabel}</label>
+              <input type="range"
+                min="0" max={dateSelectionsLength-1}
+                step="1"
+                value={this.props.twitterData.selectedIndex}
+                onChange={this.onChange} />
+            </div>
+            <div className='muted'>
+              Positive scores are positive vibes. Negative scopes are... well, sad vibes.
+              Based on <a href='http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010'>AFINN-111</a>
+            </div>
+            { this.renderTop10States() }
+            { this.props.twitterData.selectedIndex
+              ? <DataMap mapData={ this.props.twitterData.detailedData } />
+              : '' }
+          </section>
           { this.props.twitterData.detailedData.hashtags
-            ? <div>
+            ? <section>
                 <h2>Top 10 Hashtags</h2>
+                <div className='range-control'>
+                  <label>Based on 10 minutes of 1% Twitter stream from {selectedDateLabel}</label>
+                  <input type="range"
+                    min="0" max={dateSelectionsLength-1}
+                    step="1"
+                    value={this.props.twitterData.selectedIndex}
+                    onChange={this.onChange} />
+                </div>
                 <div className='muted'>
                   Using same twitter data as above (tweets with geo data).
                   Not filtered by geography. Click and drag a circle, it's kinda fun.
                 </div>
                 { this.renderHashtagsList() }
                 <Bubbles hashtagData={ this.props.twitterData.detailedData.hashtags } />
-              </div>
+              </section>
             : '' }
           {
             this.props.twitterData.historicalHapiness.length
-            ? <div>
+            ? <section>
                 <h2>Historical Happiness over Time</h2>
                 <div className='muted'>Based on twitter stream data collected.</div>
                 <TimelineBar happyData={ this.props.twitterData.historicalHapiness } />
-              </div>
+              </section>
             : ''
           }
 

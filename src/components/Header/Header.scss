@@ -18,7 +18,10 @@
     text-decoration: none;
 
     &.route--active {
-      font-weight: bold;
+      font-weight: 700;
+    }
+    &:hover {
+      font-weight: 500;
     }
   }
 
