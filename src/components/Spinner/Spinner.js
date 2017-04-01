@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import './Spinner.less';
+import './Spinner.scss';
 
 class Spinner extends React.Component {
 

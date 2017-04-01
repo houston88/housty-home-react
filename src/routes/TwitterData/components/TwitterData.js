@@ -1,4 +1,5 @@
 import React from 'react'
+import Spinner from '../../../components/Spinner'
 import DataMap from './DataMap'
 import Bubbles from './Bubbles'
 import TimelineBar from './TimelineBar'
@@ -97,6 +98,7 @@ class TwitterData extends React.Component {
 
     return (
       <div className='twitter-data'>
+        <Spinner backdrop={ true } loading={ this.props.twitterData.loading } />
         <div className='container'>
           <section>
             <h2>Happiest States Twitter Data</h2>

@@ -13,6 +13,12 @@ a {
   }
 }
 
+.loading-spinner {
+  .path {
+    stroke: $google-blue;
+  }
+}
+
 .header {
   transition: all 0.8s ease;
   background-color: $nav-background-light;
