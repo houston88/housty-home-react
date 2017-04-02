@@ -103,7 +103,7 @@ class TwitterData extends React.Component {
           <section>
             <h2>Happiest States Twitter Data</h2>
             <div className='range-control'>
-              <label>Based on 10 minutes of 1% Twitter stream from {selectedDateLabel}</label>
+              <label>Based on 10 minutes of 1% Twitter stream ending at {selectedDateLabel}</label>
               <input type="range"
                 min="0" max={dateSelectionsLength-1}
                 step="1"
@@ -111,7 +111,7 @@ class TwitterData extends React.Component {
                 onChange={this.onChange} />
             </div>
             <div className='muted'>
-              Positive scores are positive vibes. Negative scopes are... well, sad vibes.
+              Positive scores are positive vibes. Negative scores are... well, sad vibes.
               Based on <a href='http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010'>AFINN-111</a>
             </div>
             { this.renderTop10States() }

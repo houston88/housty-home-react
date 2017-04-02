@@ -22,9 +22,11 @@ class TimelineBar extends React.Component {
     this.renderTimelineBar( elem, this.width, this.props.happyData)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
+    console.log('Timeline bar getting unmounted?')
     window.removeEventListener("resize", this.updateDimensions)
     d3.select('#happy-bar').select('svg').remove()
+    d3.select('.d3-tip').remove()
   }
 
   updateDimensions() {
