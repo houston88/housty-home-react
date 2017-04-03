@@ -1,5 +1,6 @@
 .resume {
   position: relative;
+  font-size: 14px;
   h1, h2, h3 {
     margin: 0.2em 0;
   }
@@ -44,8 +45,8 @@
         padding-bottom: 8px;
       }
       .name-container {
-        height: 156px;
-        width: 156px;
+        height: 180px;
+        width: 180px;
         border-radius: 3px;
         background-image: url(../assets/housty.jpg);
         background-repeat: no-repeat;

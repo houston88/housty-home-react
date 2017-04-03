@@ -1,4 +1,4 @@
-import * as api from '../../../api/twitterData';
+import * as api from '../../../api/twitterData'
 
 // ------------------------------------
 // Constants
@@ -33,7 +33,7 @@ export function handleDateSelection (index) {
     })
     dispatch({ type : LOADING_DATA })
     // TODO: Handle error
-    let id = getState().twitterData.happiestStates[index]._id;
+    let id = getState().twitterData.happiestStates[index]._id
     return api.getHappiestStateDetails(id).then(data => {
       dispatch({
         type    : GET_TWIT_DATA_SUCCESS,
@@ -67,7 +67,6 @@ const initialState = {
 }
 
 export default function twitterDataReducer (state = initialState, action) {
-
   switch (action.type) {
     case LOADING_DATA: {
       return Object.assign({}, state, {
@@ -95,5 +94,4 @@ export default function twitterDataReducer (state = initialState, action) {
     default:
       return state
   }
-
 }

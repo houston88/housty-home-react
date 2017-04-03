@@ -1,35 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import d3 from 'd3';
-import topojson from 'topojson';
+import d3 from 'd3'
+import topojson from 'topojson'
 import Datamap from 'datamaps/dist/datamaps.usa.min'
 
 class DataMap extends React.Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.datamap = null
     this.updateDimensions = this.updateDimensions.bind(this)
   }
 
-  componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions)
+  componentDidMount () {
+    window.addEventListener('resize', this.updateDimensions)
     this.datamap = this.renderMap(this.props.mapData)
-    this.datamap.labels({fontSize: 10, labelColor: '#222'})
+    this.datamap.labels({ fontSize: 10, labelColor: '#222' })
   }
 
-  componentWillUnmount(){
-    window.removeEventListener("resize", this.updateDimensions);
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.updateDimensions)
     d3.select('#data-map').select('svg').remove()
   }
 
-  updateDimensions() {
+  updateDimensions () {
     if (this.datamap) {
-      this.datamap.resize();
+      this.datamap.resize()
     }
   }
 
-  renderMap(data) {
+  renderMap (data) {
     return new Datamap({
       element: ReactDOM.findDOMNode(this),
       scope: 'usa',
@@ -47,23 +47,23 @@ class DataMap extends React.Component {
       geographyConfig: {
         highlightBorderColor: '#bada55',
         highlightFillColor: '#FC8D59',
-        popupTemplate: function(geography, data) {
+        popupTemplate: function (geography, data) {
           if (!data) {
-            data = {rank:'NA',score:'NA'}
+            data = { rank:'NA', score:'NA' }
           }
-          return '<div class="hoverinfo"><b>'+ geography.properties.name +
+          return '<div class="hoverinfo"><b>' + geography.properties.name +
             '<b><br>Rank: ' + data.rank + '<br>Score: ' + data.score
         }
       }
     })
   }
 
-  render() {
+  render () {
     if (this.datamap) {
       this.datamap.updateChoropleth(this.props.mapData)
     }
     return (
-      <div id='data-map'></div>
+      <div id='data-map' />
     )
   }
 

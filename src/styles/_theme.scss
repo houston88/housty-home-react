@@ -30,7 +30,7 @@ a {
       border-bottom: 2px solid $google-blue;
     }
     &:hover {
-      color: lighten($dark-gray, 15%);
+      color: lighten($dark-gray, 30%);
     }
   }
   &.dark {
@@ -41,7 +41,7 @@ a {
         color: $off-white;
       }
       &:hover {
-        color: lighten($nav-foreground-dark, 15%);
+        color: lighten($nav-foreground-dark, 30%);
       }
     }
   }
