@@ -1,6 +1,9 @@
 .resume {
   position: relative;
   font-size: 14px;
+  @media print {
+    font-size: 11px;
+  }
   h1, h2, h3 {
     margin: 0.2em 0;
   }
@@ -26,7 +29,10 @@
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
-    background-image: url(../assets/buchart_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    background-image: url(../assets/sky_bg.jpg);
     .border-panel {
       padding: 12px;
       border-radius: 3px;
@@ -47,6 +53,10 @@
       .name-container {
         height: 180px;
         width: 180px;
+        @media print {
+          height: auto;
+          width: auto;
+        }
         border-radius: 3px;
         background-image: url(../assets/housty.jpg);
         background-repeat: no-repeat;
@@ -70,6 +80,9 @@
       }
       a {
         display: block;
+      }
+      a.button {
+        display: inline-block;
       }
     }
   }

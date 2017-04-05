@@ -6,6 +6,10 @@
 
 .core-layout__viewport {
   padding-top: 56px;
+  @media print {
+    // no header for print, just some padding
+    padding-top: 12px;
+  }
   min-height: calc(100vh);
 }
 

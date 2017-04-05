@@ -5,6 +5,20 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+a.button {
+  display: inline-block;
+  padding: 4px 6px;
+  margin: 2px 0;
+  background-color: $gray-transparent;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid $almost-white-transparent;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: $nav-background-dark;
+  }
+}
+
 a {
   transition: color 0.2s ease-in-out;
   text-decoration: none;

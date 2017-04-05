@@ -5,7 +5,11 @@
   left: 0;
   right: 0;
   height: 56px;
-
+  @media print {
+    // no header for print
+    height: 0;
+    display: none;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
