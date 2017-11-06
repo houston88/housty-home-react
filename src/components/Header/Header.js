@@ -13,17 +13,17 @@ class Header extends React.Component {
   }
 
   componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
+    document.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
+    document.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll (e) {
     // get scroll position
-    let scrollTop = e.srcElement.body.scrollTop
-    // just display for now
+    let scrollTop = document.documentElement.scrollTop
+    // set to state... need to debounce
     this.setState({
       scrollPos: scrollTop
     })
