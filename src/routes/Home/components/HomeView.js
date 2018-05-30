@@ -10,8 +10,8 @@ import YouTubeImage from '../assets/new_mex_cropped.png'
 import KatieBeret from '../assets/katie_beret.jpg'
 import DebiPhotosAlbumImage from '../assets/fall.jpg'
 import DebiFacebookImage from '../assets/new_york.jpg'
-import AngelaYouTubeImage from '../assets/angie_umbrella.jpg'
-import AngelaDeviantArtImage from '../assets/marzz.png'
+import AngelaYouTubeImage from '../assets/angie_smile_14.png'
+import AngelaDeviantArtImage from '../assets/angie_yellow_child.png'
 import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import './HomeView.scss'
@@ -20,7 +20,10 @@ import './HomeView.scss'
 export const HomeView = (props) => (
   <div className='home-top'>
 
-    <Parallax strength={300} bgImage={ParallaxTopImage}>
+    <Parallax
+      strength={300}
+      bgImage={ParallaxTopImage}
+    >
       <div className='profile-container'>
         <img
           alt='Harris Family'
