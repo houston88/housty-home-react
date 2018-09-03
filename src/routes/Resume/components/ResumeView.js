@@ -25,18 +25,18 @@ export const ResumeView = (props) => (
               </a>
               <a href='https://www.linkedin.com/in/houstonharris/'>
                 <FontAwesome name='linkedin' />
-                <span> https://www.linkedin.com/in/houstonharris/</span>
+                <span> linkedin.com/in/houstonharris/</span>
               </a>
               <a href='http://housty.io'>
                 <FontAwesome name='bookmark' />
-                <span> http://housty.io</span>
+                <span> housty.io</span>
               </a>
               <span>
                 <FontAwesome name='map-pin' />
                 <span> Plano, TX</span>
               </span>
             </div>
-            <a className='button' target='_blank' href='/2017Resume.pdf'>Download Resume</a>
+            <a className='button' target='_blank' href='/2018ResumeNew.pdf'>Download Resume</a>
           </div>
         </section>
         <section className='qualifications'>

@@ -13,7 +13,7 @@ export const CoreLayout = ({ children }) => (
       <div className='overlay'>&nbsp;</div>
     </div>
     <div className='footer-text'>
-      ©2017<span className='name'>&nbsp;Houston Harris</span>
+      ©2018<span className='name'>&nbsp;Houston Harris</span>
     </div>
   </div>
 )
