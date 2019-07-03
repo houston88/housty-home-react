@@ -45,6 +45,9 @@ class Header extends React.Component {
         <Link to='/resume' activeClassName='route--active'>
           Resume
         </Link>
+        <Link to='/handouts' activeClassName='route--active'>
+          Handouts
+        </Link>
         {/* <Link to='/counter' activeClassName='route--active'>
           Counter
         </Link> */}

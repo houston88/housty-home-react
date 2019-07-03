@@ -169,3 +169,21 @@ a {
     }
   }
 }
+
+.handouts {
+  section {
+    background-color: $lighter-gray-transparent;
+  }
+  table thead tr {
+    border-bottom-color: $light-gray-transparent;
+  }
+  // table tbody tr:nth-child(even) {
+  //   background: $light-gray-transparent;
+  // }
+  table tbody tr:hover {
+    background: $lighter-gray-transparent;
+  }
+  table tr {
+    
+  }
+}
