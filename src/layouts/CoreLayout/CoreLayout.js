@@ -3,9 +3,9 @@ import Header from '../../components/Header'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 
-export const CoreLayout = ({ children }) => (
+export const CoreLayout = ({ children, location }) => (
   <div>
-    <Header />
+    <Header location={location} />
     <div className='core-layout__viewport'>
       {children}
     </div>
@@ -13,13 +13,14 @@ export const CoreLayout = ({ children }) => (
       <div className='overlay'>&nbsp;</div>
     </div>
     <div className='footer-text'>
-      ©2018<span className='name'>&nbsp;Houston Harris</span>
+      ©2019<span className='name'>&nbsp;Houston Harris</span>
     </div>
   </div>
 )
 
 CoreLayout.propTypes = {
-  children : React.PropTypes.element.isRequired
+  children : React.PropTypes.element.isRequired,
+  location : React.PropTypes.object
 }
 
 export default CoreLayout
