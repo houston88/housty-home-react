@@ -4,7 +4,7 @@ import Home from './Home'
 import CounterRoute from './Counter'
 import ResumeRoute from './Resume'
 import TwitterDataRoute from './TwitterData'
-import HandoutsRoute from './Handouts'
+import DebisResourcesRoute from './DebisResources'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -17,7 +17,7 @@ export const createRoutes = (store) => ({
     CounterRoute(store),
     ResumeRoute(store),
     TwitterDataRoute(store),
-    HandoutsRoute(store)
+    DebisResourcesRoute(store)
   ]
 })
 

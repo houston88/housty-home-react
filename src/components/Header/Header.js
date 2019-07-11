@@ -45,8 +45,8 @@ class Header extends React.Component {
         <Link to='/resume' activeClassName='route--active'>
           Resume
         </Link>
-        <Link to='/handouts' activeClassName='route--active'>
-          Handouts
+        <Link to='/debis-resources' activeClassName='route--active'>
+          Debi's Resources
         </Link>
         {/* <Link to='/counter' activeClassName='route--active'>
           Counter
