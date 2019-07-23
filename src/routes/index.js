@@ -6,7 +6,7 @@ import ResumeRoute from './Resume'
 import TwitterDataRoute from './TwitterData'
 import DebisResourcesRoute from './DebisResources'
 import DebisResourcesOrientationRoute from './DebisResourcesOrientation'
-import handouts from './handouts';
+import handouts from './handouts'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */

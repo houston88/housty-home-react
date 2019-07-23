@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { IndexLink, Link } from 'react-router'
 import './Header.scss'
 
@@ -30,14 +30,14 @@ class Header extends React.Component {
   }
 
   render () {
-    const { location } = this.props; 
+    const { location } = this.props
     let headerClass = 'header'
     if (this.state.scrollPos > 56) {
       headerClass += ' dark'
     }
     return (
       <div className={headerClass}>
-        { location.pathname.indexOf('/debis-resources') == 0
+        { location.pathname.indexOf('/debis-resources') === 0
           ? <Link to='/debis-resources' activeClassName='route--active'>
             Debi's Resources
           </Link>
@@ -59,6 +59,10 @@ class Header extends React.Component {
     )
   }
 
+}
+
+Header.propTypes = {
+  location: PropTypes.string
 }
 
 export default Header

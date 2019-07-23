@@ -2,7 +2,7 @@ import React from 'react'
 import YouTubeLogoImage from './assets/youtube.png'
 import DeviantArtLogoImage from './assets/deviantart.jpg'
 import InstagramLogoImage from './assets/instagram.png'
-import PdfImage from './assets/pdf-icon.png';
+import PdfImage from './assets/pdf-icon.png'
 import './Card.scss'
 
 class Card extends React.Component {
@@ -48,10 +48,10 @@ class Card extends React.Component {
         </div>
       case 'pdf':
         return <div className='service-logo'>
-        <img
-          alt='PDF'
-          src={PdfImage} />
-      </div>
+          <img
+            alt='PDF'
+            src={PdfImage} />
+        </div>
       default:
         return ''
     }
