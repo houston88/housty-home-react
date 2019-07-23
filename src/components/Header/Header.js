@@ -37,7 +37,7 @@ class Header extends React.Component {
     }
     return (
       <div className={headerClass}>
-        { location.pathname == '/debis-resources'
+        { location.pathname.indexOf('/debis-resources') == 0
           ? <Link to='/debis-resources' activeClassName='route--active'>
             Debi's Resources
           </Link>

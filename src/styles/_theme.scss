@@ -171,13 +171,19 @@ a {
 }
 
 .debis-resources {
-  section {
-    background-color: $lighter-gray-transparent;
-  }
   .button {
     color: $off-white;
     font-size: 1.2em;
     font-weight: 600;
   }
-
+  .grade-sections {
+    background-color: $lighter-gray-transparent;
+    h2 {
+      background-color: $off-black;
+      color: $off-white;
+      &:after {
+        border-color: $off-black transparent transparent transparent;
+      }
+    }
+  }
 }

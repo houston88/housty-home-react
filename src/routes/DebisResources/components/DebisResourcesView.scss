@@ -10,6 +10,38 @@
     background-size: cover;
     background-position: bottom center;
     background-image: url(../assets/sky_bg.jpg);
+
+    .button {
+      margin-right: 6px;
+    }
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .grade-sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: none;
+    h2 {
+      padding: 1.0em;
+      border-radius: 3px;
+      position: relative;
+      // bottom triangle:
+      &:after {
+        position: absolute;
+        bottom: -8px;
+        left: calc(50% - 8px);
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+      }
+    }
   }
 
   .button {
@@ -18,15 +50,16 @@
   
   .cards {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     .card {
       margin: 0 12px 24px 12px;
       @media (max-width: 768px) {
         margin: 0 0 12px 0;
-      }
+      } 
     }
   }
+
 }
