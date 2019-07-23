@@ -6,7 +6,7 @@ import TPT from '../assets/Hands.jpg'
 import ART from '../assets/Art.jpg'
 import SHOP from '../assets/Store.jpg'
 import ESCAP from '../assets/Escape.jpg'
-import WEEK from '../assets/Week.jpg'
+import WEEK from '../assets/week.jpg'
 import LESS from '../assets/Lessons.jpg'
 import ORIE from '../assets/Orient.jpg'
 
