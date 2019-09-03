@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 import Card from '../../../components/Card'
 import './DebisResourcesView.scss'
 import TPT from '../assets/Hands.jpg'
 import ART from '../assets/Art.jpg'
 import SHOP from '../assets/Store.jpg'
 import ESCAP from '../assets/Escape.jpg'
-import WEEK from '../assets/week.jpg'
+// import WEEK from '../assets/week.jpg'
 import LESS from '../assets/Lessons.jpg'
 import ORIE from '../assets/Orient.jpg'
 
@@ -14,6 +14,7 @@ import ORIE from '../assets/Orient.jpg'
 export const DebisResourcesView = (props) => (
   <div className='debis-resources'>
     <div className='container'>
+      {/*
       <section className='top-panel'>
         <div className='info'>
           <a className='button'
@@ -24,6 +25,7 @@ export const DebisResourcesView = (props) => (
           <Link className='button' to='/debis-resources/orientation'>Orientation</Link>
         </div>
       </section>
+      */}
       <div className='grade-sections'>
         <section>
           <h2>Foundations</h2>
@@ -47,14 +49,14 @@ export const DebisResourcesView = (props) => (
             <Card
               image={ORIE}
               brand='pdf'
-              url='https://www.teacherspayteachers.com/Store/The-Tutors-Assistant'
+              url='/debi/orientation.html'
               label='Orientation Meeting' />
 
-            <Card
+            {/* <Card
               image={WEEK}
               brand='pdf'
-              url='https://www.teacherspayteachers.com/Store/The-Tutors-Assistant'
-              label='Week by Week Resources' />
+              url='/debi/lessonplans.html'
+              label='Week by Week Resources' /> */}
 
             {/* <Card
               image={HANDY}
@@ -64,7 +66,7 @@ export const DebisResourcesView = (props) => (
             <Card
               image={LESS}
               brand='pdf'
-              url='https://www.teacherspayteachers.com/Store/The-Tutors-Assistant'
+              url='/debi/lessonplans.html'
               label='My Lesson Plans' />
             <Card
               image={ESCAP}
