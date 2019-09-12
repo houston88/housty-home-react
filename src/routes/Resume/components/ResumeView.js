@@ -60,7 +60,7 @@ export const ResumeView = (props) => (
             <div>
               <b>Intuit</b>, ProConnect Group <u>2013 - Present</u>
             </div>
-            <div> 
+            <div>
               <b>Raytheon Company</b>, IIS <u>2000 - 2013</u>
             </div>
           </div>
