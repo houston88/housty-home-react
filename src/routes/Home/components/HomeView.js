@@ -14,6 +14,7 @@ import AngelaYouTubeImage from '../assets/angie_smile_14.png'
 import AngelaDeviantArtImage from '../assets/angie_yellow_child.png'
 import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
+import AngieArtHomepage from '../assets/a-good-boy.png'
 import './HomeView.scss'
 
 // pure render component
@@ -77,6 +78,11 @@ export const HomeView = (props) => (
           brand='deviantart'
           url='http://ghostsky.deviantart.com/gallery/'
           label='Angela&#39;s Deviant Art' />
+        <Card
+          image={AngieArtHomepage}
+          brand='google'
+          url='https://angelaroseharris.com'
+          label='Angela&#39;s Homepage' />
         <Card
           image={HoustyInstagram}
           brand='instagram'

@@ -62,7 +62,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  location: PropTypes.string
+  location: PropTypes.object
 }
 
 export default Header

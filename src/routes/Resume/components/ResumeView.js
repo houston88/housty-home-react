@@ -49,16 +49,19 @@ export const ResumeView = (props) => (
           <h3>Skills</h3>
           <div className='resume-data-table'><label>GENERAL </label><span>Software Developer, Team Management, Software Architect</span></div>
           <div className='resume-data-table'><label>LANGUAGES </label><span>JavaScript, Java, Groovy, Python, KML, CSS, XML, C/C++</span></div>
-          <div className='resume-data-table'><label>FRAMEWORKS </label><span>React, AngularJs, jQuery, Grails, JEE, Spring, Hibernate, JDBC, Struts, JSP, SOA, Solr, Swing, Dojo</span></div>
+          <div className='resume-data-table'><label>FRAMEWORKS </label><span>React, AngularJs, jQuery, Grails, JEE, Spring, Hibernate, JPA, JDBC, Struts, JSP, SOA, Solr, Swing, Dojo</span></div>
           <div className='resume-data-table'><label>MIDDLEWARE </label><span>Node, Tomcat, Apache, Weblogic, JBoss</span></div>
-          <div className='resume-data-table'><label>DATABASES </label><span>Cassandra, MongoDB, Oracle, PostgreSQL, MySQL, Lucene</span></div>
+          <div className='resume-data-table'><label>DATABASES </label><span>Cassandra, MongoDB, Oracle, PostgreSQL, MySQL/MariaDB, Lucene</span></div>
         </section>
 
         <section>
           <div className='experience'>
             <h3>Experience</h3>
             <div>
-              <b>Intuit</b>, ProConnect Group <u>2013 - Present</u>
+              <b>Forcepoint</b>, Global Governments and Critical Infrastructure <u>2019 - Present</u>
+            </div>
+            <div>
+              <b>Intuit</b>, ProConnect Group <u>2013 - 2019</u>
             </div>
             <div>
               <b>Raytheon Company</b>, IIS <u>2000 - 2013</u>
@@ -68,7 +71,16 @@ export const ResumeView = (props) => (
 
         <div className='experience-sections'>
           <section>
-            <label>2013 - Present : Intuit Link Project</label>
+            <label>2019 - Present : Forcepoint High Speed Guard and Enterprise Management System</label>
+            <ul>
+              <li>Architect and Tech Lead for Enterprise software project</li>
+              <li>Full stack development using React for UI and Java Spring Boot for REST services</li>
+              <li>Jenkins build pipelines for CI/CD</li>
+              <li>JPA, MariaDB, Webpack, Npm, JFrog Artifactory, Bitbucket, OpenLDAP, Protocol Buffers</li>
+            </ul>
+          </section>
+          <section>
+            <label>2013 - 2019 : Intuit Link Project</label>
             <ul>
               <li>Full stack development utilizing JavaScript, HTML, CSS, Java</li>
               <li>React, Angular, Highcharts, d3, Node.js, Webpack, Grunt, Gulp, Npm, Bower</li>
@@ -122,7 +134,7 @@ export const ResumeView = (props) => (
         <section>
           <h3>Leadership/Hobbies</h3>
           PMI Project management professional certified, EVMS level 2,
-          recreational soccer player, mountain biking, traveling. 
+          recreational soccer player, mountain biking, traveling, drone photography/videography
         </section>
 
       </div>
