@@ -8,7 +8,7 @@ import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg'
 import HoustyInstagram from '../assets/claire_eye_instagram.jpg'
 import YouTubeImage from '../assets/new_mex_cropped.png'
 import KatieBeret from '../assets/katie_beret.jpg'
-import KatieInsta from '../assets/katie_insta.png';
+import KatieInsta from '../assets/katie_insta.png'
 import DebiPhotosAlbumImage from '../assets/fall.jpg'
 import DebiFacebookImage from '../assets/new_york.jpg'
 import AngelaYouTubeImage from '../assets/angie_pose.jpg'
