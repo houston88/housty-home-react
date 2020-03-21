@@ -35,7 +35,7 @@ class Card extends React.Component {
             src={DeviantArtLogoImage} />
         </div>
       case 'instagram':
-        return <div className='service-logo white-rounded-bg'>
+        return <div className='service-logo'>
           <img
             alt='Instagram'
             src={InstagramLogoImage} />

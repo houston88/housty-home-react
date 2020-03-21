@@ -2,16 +2,18 @@ import React from 'react'
 import { Parallax } from 'react-parallax'
 import Card from '../../../components/Card'
 import ParallaxTopImage from '../assets/tuscany_landscape_sm.jpg'
-import FamilyImage from '../assets/family_nm_2.jpg'
+import FamilyImage from '../assets/HoustyFamPic.jpg'
 import PhotosAlbumImage from '../assets/vancouver_cropped.jpg'
 import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg'
 import HoustyInstagram from '../assets/claire_eye_instagram.jpg'
 import YouTubeImage from '../assets/new_mex_cropped.png'
 import KatieBeret from '../assets/katie_beret.jpg'
+import KatieInsta from '../assets/katie_insta.png';
 import DebiPhotosAlbumImage from '../assets/fall.jpg'
 import DebiFacebookImage from '../assets/new_york.jpg'
-import AngelaYouTubeImage from '../assets/angie_smile_14.png'
+import AngelaYouTubeImage from '../assets/angie_pose.jpg'
 import AngelaDeviantArtImage from '../assets/angie_yellow_child.png'
+import AngelaInstagram from '../assets/angela_inst1.png'
 import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import AngieArtHomepage from '../assets/a-good-boy.png'
@@ -49,6 +51,11 @@ export const HomeView = (props) => (
           url='https://www.facebook.com/housty.harris/photos'
           label='Houston&#39;s Facebook Photos' />
         <Card
+          image={HoustyInstagram}
+          brand='instagram'
+          url='https://www.instagram.com/housty_harris'
+          label='Houston&#39;s Instagram' />
+        <Card
           image={DebiPhotosAlbumImage}
           brand='google'
           url='https://get.google.com/albumarchive/112758650498152815622'
@@ -69,6 +76,11 @@ export const HomeView = (props) => (
           url='https://www.youtube.com/channel/UCSTLbVq3kb-L4gleh23t-1Q'
           label='Katie&#39;s YouTube Channel' />
         <Card
+          image={KatieInsta}
+          brand='instagram'
+          url='https://www.instagram.com/kat13277/'
+          label='Katie&#39;s Instagram' />
+        <Card
           image={AngelaYouTubeImage}
           brand='youtube'
           url='https://www.youtube.com/channel/UCL7F8JE0grX_3v__KWqcbmg/videos'
@@ -84,10 +96,10 @@ export const HomeView = (props) => (
           url='https://angelaroseharris.com'
           label='Angela&#39;s Homepage' />
         <Card
-          image={HoustyInstagram}
+          image={AngelaInstagram}
           brand='instagram'
-          url='https://www.instagram.com/housty_harris'
-          label='Houston&#39;s Instagram' />
+          url='https://www.instagram.com/fingergguns/'
+          label='Angie&#39;s Instagram' />
         <Card
           image={BensArtImage}
           brand='squarespace'
