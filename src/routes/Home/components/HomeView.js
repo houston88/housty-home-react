@@ -17,6 +17,7 @@ import AngelaInstagram from '../assets/angela_inst1.png'
 import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import AngieArtHomepage from '../assets/a-good-boy.png'
+import AngieLocalFoolPage from '../assets/angie-localfool-neocities.png'
 import './HomeView.scss'
 
 // pure render component
@@ -90,6 +91,11 @@ export const HomeView = (props) => (
           brand='deviantart'
           url='http://ghostsky.deviantart.com/gallery/'
           label='Angela&#39;s Deviant Art' />
+        <Card
+          image={AngieLocalFoolPage}
+          brand='google'
+          url='https://localfool.neocities.org'
+          label='Angie&#39;s LocalFool' />
         <Card
           image={AngieArtHomepage}
           brand='google'
