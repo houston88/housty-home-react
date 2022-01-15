@@ -13,10 +13,9 @@ import DebiPhotosAlbumImage from '../assets/fall.jpg'
 import DebiFacebookImage from '../assets/new_york.jpg'
 import AngelaYouTubeImage from '../assets/angie_pose.jpg'
 import AngelaDeviantArtImage from '../assets/angie_yellow_child.png'
-import AngelaInstagram from '../assets/angela_inst1.png'
+import AngelaInstagram from '../assets/angie-localffool-insta.png'
 import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
-import AngieArtHomepage from '../assets/a-good-boy.png'
 import AngieLocalFoolPage from '../assets/angie-localfool-neocities.png'
 import './HomeView.scss'
 
@@ -82,30 +81,25 @@ export const HomeView = (props) => (
           url='https://www.instagram.com/kat13277/'
           label='Katie&#39;s Instagram' />
         <Card
-          image={AngelaYouTubeImage}
-          brand='youtube'
-          url='https://www.youtube.com/channel/UCL7F8JE0grX_3v__KWqcbmg/videos'
-          label='Angela&#39;s YouTube Channel' />
+          image={AngieLocalFoolPage}
+          brand='google'
+          url='https://localfool.neocities.org'
+          label='Angie&#39;s LocalFool Neocities' />
+        <Card
+          image={AngelaInstagram}
+          brand='instagram'
+          url='https://www.instagram.com/localffool/'
+          label='Angie&#39;s (localfool) Instagram' />
         <Card
           image={AngelaDeviantArtImage}
           brand='deviantart'
           url='http://ghostsky.deviantart.com/gallery/'
           label='Angela&#39;s Deviant Art' />
         <Card
-          image={AngieLocalFoolPage}
-          brand='google'
-          url='https://localfool.neocities.org'
-          label='Angie&#39;s LocalFool' />
-        <Card
-          image={AngieArtHomepage}
-          brand='google'
-          url='https://angelaroseharris.com'
-          label='Angela&#39;s Homepage' />
-        <Card
-          image={AngelaInstagram}
-          brand='instagram'
-          url='https://www.instagram.com/fingergguns/'
-          label='Angie&#39;s Instagram' />
+          image={AngelaYouTubeImage}
+          brand='youtube'
+          url='https://www.youtube.com/channel/UCL7F8JE0grX_3v__KWqcbmg/videos'
+          label='Angela&#39;s YouTube Channel' />
         <Card
           image={BensArtImage}
           brand='squarespace'

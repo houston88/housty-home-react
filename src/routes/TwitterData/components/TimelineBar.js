@@ -77,7 +77,7 @@ class TimelineBar extends React.Component {
 	  // Parse the date strings into javascript dates
 	  data.forEach(function (d) {
 	    d.date = new Date(d.parseDate)
-    d.value = d.score
+      d.value = d.score
 	  })
 
     x.domain(data.map(function (d) { return d.date }))

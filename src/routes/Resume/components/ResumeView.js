@@ -36,7 +36,7 @@ export const ResumeView = (props) => (
                 <span> Plano, TX</span>
               </span>
             </div>
-            <a className='button' target='_blank' href='/2018ResumeNew.pdf'>Download Resume</a>
+            <a className='button' target='_blank' href='/Resume2022.pdf'>Download Resume</a>
           </div>
         </section>
         <section className='qualifications'>
