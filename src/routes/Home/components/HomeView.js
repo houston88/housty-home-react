@@ -6,15 +6,13 @@ import FamilyImage from '../assets/HoustyFamPic.jpg'
 import PhotosAlbumImage from '../assets/vancouver_cropped.jpg'
 import FacebookAlbumImage from '../assets/housty_san_fran_cropped.jpg'
 import HoustyInstagram from '../assets/claire_eye_instagram.jpg'
-import YouTubeImage from '../assets/new_mex_cropped.png'
+import YouTubeImage from '../assets/you-tube-thumb.png'
 import KatieBeret from '../assets/katie_beret.jpg'
 import KatieInsta from '../assets/katie_insta.png'
 import DebiPhotosAlbumImage from '../assets/fall.jpg'
 import DebiFacebookImage from '../assets/new_york.jpg'
-import AngelaYouTubeImage from '../assets/angie_pose.jpg'
-import AngelaDeviantArtImage from '../assets/angie_yellow_child.png'
+import AngelaAdumbrate from '../assets/adumbrate-no1-clip.jpg'
 import AngelaInstagram from '../assets/angie-localffool-insta.png'
-import BensArtImage from '../assets/elcap_benart.jpg'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import AngieLocalFoolPage from '../assets/angie-localfool-neocities.png'
 import './HomeView.scss'
@@ -41,35 +39,25 @@ export const HomeView = (props) => (
 
       <div className='cards'>
         <Card
-          image={PhotosAlbumImage}
-          brand='google'
-          url='https://get.google.com/albumarchive/109571831393986720016'
-          label='Houston&#39;s Google Photos' />
-        <Card
-          image={FacebookAlbumImage}
-          brand='facebook'
-          url='https://www.facebook.com/housty.harris/photos'
-          label='Houston&#39;s Facebook Photos' />
+          image={YouTubeImage}
+          brand='youtube'
+          url='https://www.youtube.com/user/houstyharris/videos'
+          label='Houston&#39;s YouTube Channel' />
         <Card
           image={HoustyInstagram}
           brand='instagram'
           url='https://www.instagram.com/housty_harris'
           label='Houston&#39;s Instagram' />
         <Card
-          image={DebiPhotosAlbumImage}
-          brand='google'
-          url='https://get.google.com/albumarchive/112758650498152815622'
-          label='Debi&#39;s Google Photos' />
+          image={FacebookAlbumImage}
+          brand='facebook'
+          url='https://www.facebook.com/housty.harris/photos'
+          label='Houston&#39;s Facebook Photos' />
         <Card
           image={DebiFacebookImage}
           brand='facebook'
           url='https://www.facebook.com/debi.s.harris/photos'
           label='Debi&#39;s Facebook Photos' />
-        <Card
-          image={YouTubeImage}
-          brand='youtube'
-          url='https://www.youtube.com/user/houstyharris/videos'
-          label='Houston&#39;s YouTube Channel' />
         <Card
           image={KatieBeret}
           brand='youtube'
@@ -78,7 +66,7 @@ export const HomeView = (props) => (
         <Card
           image={KatieInsta}
           brand='instagram'
-          url='https://www.instagram.com/kat13277/'
+          url='https://www.instagram.com/kat__ur_mom/'
           label='Katie&#39;s Instagram' />
         <Card
           image={AngieLocalFoolPage}
@@ -86,25 +74,15 @@ export const HomeView = (props) => (
           url='https://localfool.neocities.org'
           label='Angie&#39;s LocalFool Neocities' />
         <Card
+          image={AngelaAdumbrate}
+          brand='itch'
+          url='https://jellyfishlover.itch.io/'
+          label='Angie&#39;s Games and Zines' />
+        <Card
           image={AngelaInstagram}
           brand='instagram'
           url='https://www.instagram.com/localffool/'
           label='Angie&#39;s (localfool) Instagram' />
-        <Card
-          image={AngelaDeviantArtImage}
-          brand='deviantart'
-          url='http://ghostsky.deviantart.com/gallery/'
-          label='Angela&#39;s Deviant Art' />
-        <Card
-          image={AngelaYouTubeImage}
-          brand='youtube'
-          url='https://www.youtube.com/channel/UCL7F8JE0grX_3v__KWqcbmg/videos'
-          label='Angela&#39;s YouTube Channel' />
-        <Card
-          image={BensArtImage}
-          brand='squarespace'
-          url='http://bensartorius.com/'
-          label='Ben Sartorius Art' />
         <Card
           image={GunungBonitoImage}
           brand='squarespace'

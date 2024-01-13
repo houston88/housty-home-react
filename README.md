@@ -40,6 +40,14 @@ Finally, This project wouldn't be possible without the help of our many contribu
 * node `^4.5.0`
 * yarn `^0.17.0` or npm `^3.0.0`
 
+## Project Getting Old
+
+Have to use an older version of node for this thing to work:
+
+    nvm use v12.18.3
+    npm i
+    npm start
+
 ## Getting Started
 
 After confirming that your development environment meets the specified [requirements](#requirements), you can create a new project based on `react-redux-starter-kit` by doing the following:

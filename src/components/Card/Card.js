@@ -3,6 +3,7 @@ import YouTubeLogoImage from './assets/youtube.png'
 import DeviantArtLogoImage from './assets/deviantart.jpg'
 import InstagramLogoImage from './assets/instagram.png'
 import PdfImage from './assets/pdf-icon.png'
+import Itch from './assets/itch.png'
 import './Card.scss'
 
 class Card extends React.Component {
@@ -51,6 +52,12 @@ class Card extends React.Component {
           <img
             alt='PDF'
             src={PdfImage} />
+        </div>
+      case 'itch':
+        return <div className='service-logo'>
+          <img
+            alt='Itch'
+            src={Itch} />
         </div>
       default:
         return ''
