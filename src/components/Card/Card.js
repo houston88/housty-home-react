@@ -8,7 +8,7 @@ import './Card.scss'
 
 class Card extends React.Component {
 
-  renderBrandLogo (brand) {
+  renderBrandLogo(brand) {
     switch (brand) {
       case 'google':
         return <div className='service-logo'>
@@ -64,7 +64,7 @@ class Card extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div className='card'>
         <a href={this.props.url} target='_blank'>
@@ -72,9 +72,9 @@ class Card extends React.Component {
             <img alt='image' src={this.props.image} />
           </div>
           <div className={'card-desc' + (this.props.brand ? ` ${this.props.brand}` : '')}>
-            { this.props.brand
+            {this.props.brand
               ? this.renderBrandLogo(this.props.brand)
-              : '' }
+              : ''}
             {this.props.label}
           </div>
         </a>
@@ -84,11 +84,13 @@ class Card extends React.Component {
 
 }
 
+import PropTypes from 'prop-types'
+
 Card.propTypes = {
-  url   : React.PropTypes.string.isRequired,
-  image : React.PropTypes.string.isRequired,
-  label : React.PropTypes.string.isRequired,
-  brand : React.PropTypes.string
+  url: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  brand: PropTypes.string
 }
 
 export default Card

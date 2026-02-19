@@ -1,9 +1,9 @@
 export default (store) => ({
-  path : 'debis-resources/handouts',
-  getComponent (nextState, cb) {
-    require.ensure([], (require) => {
-      const Orientation = require('./components/Orientation').default
+  path: 'debis-resources/handouts',
+  getComponent(nextState, cb) {
+    import('./components/Orientation').then((module) => {
+      const Orientation = module.default
       cb(null, Orientation)
-    }, 'handy-handouts')
+    })
   }
 })
