@@ -13,14 +13,16 @@ export const CoreLayout = ({ children, location }) => (
       <div className='overlay'>&nbsp;</div>
     </div>
     <div className='footer-text'>
-      ©2024<span className='name'>&nbsp;Houston Harris</span>
+      ©2026<span className='name'>&nbsp;Houston Harris</span>
     </div>
   </div>
 )
 
+import PropTypes from 'prop-types'
+
 CoreLayout.propTypes = {
-  children : React.PropTypes.element.isRequired,
-  location : React.PropTypes.object
+  children: PropTypes.element.isRequired,
+  location: PropTypes.object
 }
 
 export default CoreLayout

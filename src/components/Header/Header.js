@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
 import './Header.scss'
 
 class Header extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleScroll = this.handleScroll.bind(this)
     this.state = {
@@ -11,15 +12,15 @@ class Header extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener('scroll', this.handleScroll)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll (e) {
+  handleScroll(e) {
     // get scroll position
     let scrollTop = document.documentElement.scrollTop
     // set to state... need to debounce
@@ -28,7 +29,7 @@ class Header extends React.Component {
     })
   }
 
-  render () {
+  render() {
     let headerClass = 'header'
     if (this.state.scrollPos > 56) {
       headerClass += ' dark'

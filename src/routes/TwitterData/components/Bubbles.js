@@ -1,287 +1,162 @@
 import React from 'react'
-import d3 from 'd3'
+import * as d3 from 'd3'
 import './Bubbles.scss'
 
 class Bubbles extends React.Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.bubbles = null
+    this.simulation = null
     this.width = 0
+    this.height = 0
     this.updateDimensions = this.updateDimensions.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     let elem = document.getElementById('hashtag-bubbles')
     this.width = elem.innerWidth || elem.clientWidth
+    this.height = this.width * 0.3 || 400
     window.addEventListener('resize', this.updateDimensions)
     this.plotBubbles(this.props.hashtagData)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions)
+    if (this.simulation) this.simulation.stop()
     d3.select('#hashtag-bubbles').select('svg').remove()
   }
 
-  updateDimensions () {
-    let elem = document.getElementById('hashtag-bubbles')
-    this.width = elem.innerWidth || elem.clientWidth
-    this.plotBubbles(this.props.hashtagData)
-  }
-
-  plotBubbles (data) {
-    // transform data
-    let bubbleData = []
-    data.forEach(function (tag) {
-      bubbleData.push({ name:tag.hashtag, count:tag.count })
-    })
-    if (this.bubbles) {
-      d3.select('#hashtag-bubbles').select('svg').remove()
-      d3.select('#hashtag-bubbles').select('#bubble-labels').remove()
-      d3.select('#hashtag-bubbles').datum(bubbleData).call(this.bubbles)
-    } else {
-      this.bubbles = new this._createBubblesViz(this.width)
-      d3.select('#hashtag-bubbles').datum(bubbleData).call(this.bubbles)
-    }
-  }
-
-  render () {
-    if (this.bubbles) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.hashtagData !== this.props.hashtagData) {
       this.plotBubbles(this.props.hashtagData)
     }
-    return (
-      <div id='hashtag-bubbles' />
-    )
   }
 
-  _createBubblesViz (widthAttr) {
-    var chart, clear, click, collide, collisionPadding, connectEvents, data, force, gravity, hashchange, height, idValue, jitter, label, margin, maxRadius, minCollisionRadius, mouseout, mouseover, node, rScale, rValue, textValue, tick, transformData, update, updateActive, updateLabels, updateNodes, width
-    width = widthAttr || 600
-    height = width * 0.3 || 400
-    data = []
-    node = null
-    label = null
-    margin = {
-      top: 5,
-      right: 0,
-      bottom: 0,
-      left: 0
+  updateDimensions() {
+    let elem = document.getElementById('hashtag-bubbles')
+    this.width = elem.innerWidth || elem.clientWidth
+    this.height = this.width * 0.3 || 400
+    if (this.simulation) {
+      this.simulation.force('center', d3.forceCenter(this.width / 2, this.height / 2))
+      this.simulation.alpha(1).restart()
+    } else {
+      this.plotBubbles(this.props.hashtagData)
     }
-    maxRadius = 85
-    rScale = d3.scale.sqrt().range([0, maxRadius])
-    rValue = function (d) {
-      return parseInt(d.count)
-    }
-    idValue = function (d) {
-      return d.name
-    }
-    textValue = function (d) {
-      return d.name
-    }
-    collisionPadding = 4
-    minCollisionRadius = 12
-    jitter = 0.5
-    transformData = function (rawData) {
-      rawData.forEach(function (d) {
-        d.count = parseInt(d.count)
-        return rawData.sort(function () {
-          return 0.5 - Math.random()
-        })
+  }
+
+  dragstarted = (event, d) => {
+    if (!event.active) this.simulation.alphaTarget(0.3).restart()
+    d.fx = d.x
+    d.fy = d.y
+  }
+
+  dragged = (event, d) => {
+    d.fx = event.x
+    d.fy = event.y
+  }
+
+  dragended = (event, d) => {
+    if (!event.active) this.simulation.alphaTarget(0.05)
+    d.fx = null
+    d.fy = null
+  }
+
+  plotBubbles(data) {
+    if (this.simulation) this.simulation.stop()
+    const { width, height } = this
+    d3.select('#hashtag-bubbles').selectAll('*').remove()
+
+    const bubbleData = data.map(tag => ({
+      name: tag.hashtag,
+      count: parseInt(tag.count),
+      r: parseInt(tag.count) // Initial radius, will be scaled
+    }))
+
+    const maxRadius = 85
+    const rScale = d3.scaleSqrt()
+      .domain([0, d3.max(bubbleData, d => d.count)])
+      .range([0, maxRadius])
+
+    // Update radius in data
+    bubbleData.forEach(d => {
+      d.r = rScale(d.count)
+    })
+
+    const svg = d3.select('#hashtag-bubbles')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+
+    const node = svg.append('g')
+      .attr('class', 'bubble-nodes')
+      .selectAll('circle')
+      .data(bubbleData)
+      .enter()
+      .append('g')
+      .attr('class', 'bubble-node')
+      .attr('cursor', 'pointer')
+      .on('click', (event, d) => {
+        // Handle click
+        console.log('Clicked', d.name)
       })
-      return rawData
-    }
-    tick = function (e) {
-      var dampenedAlpha
-      dampenedAlpha = e.alpha * 0.1
-      node.each(gravity(dampenedAlpha)).each(collide(jitter)).attr('transform', function (d) {
-        return 'translate(' + d.x + ',' + d.y + ')'
+      .call(d3.drag()
+        .on('start', this.dragstarted)
+        .on('drag', this.dragged)
+        .on('end', this.dragended))
+
+    const circles = node.append('circle')
+      .attr('r', d => d.r)
+      .attr('fill', (d, i) => d3.schemeCategory10[i % 10]) // Use built-in color scheme
+
+    const labels = node.append('text')
+      .attr('class', 'bubble-label')
+      .style('text-anchor', 'middle')
+      .style('font-size', d => Math.max(8, rScale(d.count / 8)) + 'px')
+      .text(d => d.name)
+      .style('pointer-events', 'none')
+
+    const simulation = d3.forceSimulation(bubbleData)
+      .velocityDecay(0.2) // Lower decay for more "floaty" movement
+      .force('charge', d3.forceManyBody().strength(5)) // Positive strength attracts, but we want them to cluster. 
+      // If we want "bouncing", we rely on collision. 
+      // Actually, user said previously they were bouncing.
+      // Let's try combining Charge (attract) with Collision (repel) properly.
+      // Or maybe simple repulsion (-charge) + separate forceX/Y?
+      // Let's stick to Center + Collision + light Charge.
+      // Refined:
+      .force('charge', d3.forceManyBody().strength(5))
+      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('x', d3.forceX(width / 2).strength(0.01)) // Pulls bubbles to horizontal center
+      .force('y', d3.forceY(height / 2).strength(0.01)) // Pulls bubbles to vertical center
+      .force('collision', d3.forceCollide().radius(d => d.r + 2).strength(3)) // Higher iteration/strength for hardness
+      .on('tick', () => {
+        node.attr('transform', d => `translate(${d.x},${d.y})`)
       })
-      return label.style('left', function (d) {
-        return ((margin.left + d.x) - d.dx / 2) + 'px'
-      }).style('top', function (d) {
-        return ((margin.top + d.y) - d.dy / 2) + 'px'
-      })
-    }
-    force = d3.layout.force().gravity(0).charge(0).size([width, height]).on('tick', tick)
-    chart = function (selection) {
-      return selection.each(function (rawData) {
-        var maxDomainValue, svg, svgEnter
-        data = transformData(rawData)
-        maxDomainValue = d3.max(data, function (d) {
-          return rValue(d)
-        })
-        rScale.domain([0, maxDomainValue])
-        svg = d3.select(this).selectAll('svg').data([data])
-        svgEnter = svg.enter().append('svg')
-        svg.attr('width', width + margin.left + margin.right)
-        svg.attr('height', height + margin.top + margin.bottom)
-        node = svgEnter.append('g').attr('id', 'bubble-nodes').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-        node.append('rect').attr('id', 'bubble-background').attr('width', width).attr('height', height)
-        // .on('click', clear);
-        label = d3.select(this).selectAll('#bubble-labels').data([data]).enter().append('div').attr('id', 'bubble-labels')
-        update()
-        hashchange()
-        // return d3.select(window).on('hashchange', hashchange);
-      })
-    }
-    update = function () {
-      data.forEach(function (d, i) {
-        d.forceR = Math.max(minCollisionRadius, rScale(rValue(d)))
-        return d.forceR
-      })
-      force.nodes(data).start()
-      updateNodes()
-      return updateLabels()
-    }
-    updateNodes = function () {
-      node = node.selectAll('.bubble-node').data(data, function (d) {
-        return idValue(d)
-      })
-      node.exit().remove()
-      return node.enter().append('a').attr('class', 'bubble-node').attr('xlink:href', function (d) {
-        return '#' + (encodeURIComponent(idValue(d)))
-      }).call(force.drag).call(connectEvents).append('circle').attr('r', function (d) {
-        return rScale(rValue(d))
-      })
-    }
-    updateLabels = function () {
-      var labelEnter
-      label = label.selectAll('.bubble-label').data(data, function (d) {
-        return idValue(d)
-      })
-      label.exit().remove()
-      labelEnter = label.enter().append('a').attr('class', 'bubble-label').attr('href', function (d) {
-        return '#' + (encodeURIComponent(idValue(d)))
-      }).call(force.drag).call(connectEvents)
-      labelEnter.append('div').attr('class', 'bubble-label-name').text(function (d) {
-        return textValue(d)
-      })
-      labelEnter.append('div').attr('class', 'bubble-label-value').text(function (d) {
-        return rValue(d)
-      })
-      label.style('font-size', function (d) {
-        return Math.max(8, rScale(rValue(d) / 8)) + 'px'
-      }).style('width', function (d) {
-        return 2.5 * rScale(rValue(d)) + 'px'
-      })
-      label.append('span').text(function (d) {
-        return textValue(d)
-      }).each(function (d) {
-        d.dx = Math.max(2.5 * rScale(rValue(d)), this.getBoundingClientRect().width)
-        return d.dx
-      }).remove()
-      label.style('width', function (d) {
-        return d.dx + 'px'
-      })
-      return label.each(function (d) {
-        d.dy = this.getBoundingClientRect().height
-        return d.dy
-      })
-    }
-    gravity = function (alpha) {
-      var ax, ay, cx, cy
-      cx = width / 2
-      cy = height / 2
-      ax = alpha / 8
-      ay = alpha
-      return function (d) {
-        d.x += (cx - d.x) * ax
-        return d.y += (cy - d.y) * ay
-      }
-    }
-    collide = function (jitter) {
-      return function (d) {
-        return data.forEach(function (d2) {
-          var distance, minDistance, moveX, moveY, x, y
-          if (d !== d2) {
-            x = d.x - d2.x
-            y = d.y - d2.y
-            distance = Math.sqrt(x * x + y * y)
-            minDistance = d.forceR + d2.forceR + collisionPadding
-            if (distance < minDistance) {
-              distance = (distance - minDistance) / distance * jitter
-              moveX = x * distance
-              moveY = y * distance
-              d.x -= moveX
-              d.y -= moveY
-              d2.x += moveX
-              return d2.y += moveY
-            }
-          }
-        })
-      }
-    }
-    connectEvents = function (d) {
-      d.on('click', click)
-      d.on('mouseover', mouseover)
-      return d.on('mouseout', mouseout)
-    }
-    clear = function () {
-      return location.replace('#')
-    }
-    click = function (d) {
-      // location.replace('#' + encodeURIComponent(idValue(d)));
-      return d3.event.preventDefault()
-    }
-    hashchange = function () {
-      var id
-      id = decodeURIComponent(location.hash.substring(1)).trim()
-      return updateActive(id)
-    }
-    updateActive = function (id) {
-      node.classed('bubble-selected', function (d) {
-        return id === idValue(d)
-      })
-      if (id.length > 0) {
-        return d3.select('#status').html('<h3>The word <span class=\'active\'>' + id + '</span> is now active</h3>')
-      } else {
-        return d3.select('#status').html('<h3>No word is active</h3>')
-      }
-    }
-    mouseover = function (d) {
-      return node.classed('bubble-hover', function (p) {
-        return p === d
-      })
-    }
-    mouseout = function (d) {
-      return node.classed('bubble-hover', false)
-    }
-    chart.jitter = function (_) {
-      if (!arguments.length) {
-        return jitter
-      }
-      jitter = _
-      force.start()
-      return chart
-    }
-    chart.height = function (_) {
-      if (!arguments.length) {
-        return height
-      }
-      height = _
-      return chart
-    }
-    chart.width = function (_) {
-      if (!arguments.length) {
-        return width
-      }
-      width = _
-      return chart
-    }
-    chart.r = function (_) {
-      if (!arguments.length) {
-        return rValue
-      }
-      rValue = _
-      return chart
-    }
-    return chart
+
+    // To keep them "moving" continuously or longer:
+    // simulation.alphaTarget(0.05); // Keeps the simulation "hot" but might be too CPU intensive?
+    // Let's just reduce regular decay.
+
+    // Actually, looking at the user request: "slightly moving and bouncing off of each other".
+    // This often implies a low velocity decay and maybe a small alpha target.
+    // Let's set a small alpha target to keep them alive.
+    simulation.alphaTarget(0.05)
+
+    this.simulation = simulation
+  }
+
+  render() {
+    return (
+      <div id='hashtag-bubbles' style={{ width: '100%' }} />
+    )
   }
 
 }
 
+import PropTypes from 'prop-types'
+
 Bubbles.propTypes = {
-  hashtagData : React.PropTypes.array.isRequired
+  hashtagData: PropTypes.array.isRequired
 }
 
 export default Bubbles
