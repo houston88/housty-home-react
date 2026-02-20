@@ -1,7 +1,10 @@
+@use "sass:color";
+@use "colors";
+
 // theme the app, we can use variables here...
 
 body {
-  background-color: $almost-white;
+  background-color: colors.$almost-white;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -9,19 +12,21 @@ a.button {
   display: inline-block;
   padding: 4px 6px;
   margin: 2px 0;
-  background-color: $gray-transparent;
+  background-color: colors.$gray-transparent;
   color: white;
   border-radius: 3px;
-  border: 1px solid $almost-white-transparent;
+  border: 1px solid colors.$almost-white-transparent;
   transition: background-color 0.3s ease-in-out;
+
   &:hover {
-    background-color: $nav-background-dark;
+    background-color: colors.$nav-background-dark;
   }
 }
 
 a {
   transition: color 0.2s ease-in-out;
   text-decoration: none;
+
   &:visited {
     color: inherit;
   }
@@ -29,55 +34,67 @@ a {
 
 .loading-spinner {
   .path {
-    stroke: $google-blue;
+    stroke: colors.$google-blue;
   }
 }
 
 .header {
   transition: all 0.8s ease;
-  background-color: $nav-background-light;
+  background-color: colors.$nav-background-light;
+
   a {
-    color: $dark-gray;
+    color: colors.$dark-gray;
     border-bottom: 1px solid transparent;
+
     &.route--active {
-      color: $off-black;
-      border-bottom: 2px solid $google-blue;
+      color: colors.$off-black;
+      border-bottom: 2px solid colors.$google-blue;
     }
+
     &:hover {
-      color: lighten($dark-gray, 30%);
+      color: color.adjust(colors.$dark-gray, $lightness: 30%);
     }
   }
+
   &.dark {
-    background-color: $nav-background-dark;
+    background-color: colors.$nav-background-dark;
+
     a {
-      color: $nav-foreground-dark;
+      color: colors.$nav-foreground-dark;
+
       &.route--active {
-        color: $off-white;
+        color: colors.$off-white;
       }
+
       &:hover {
-        color: lighten($nav-foreground-dark, 30%);
+        color: color.adjust(colors.$nav-foreground-dark, $lightness: 30%);
       }
     }
   }
 }
 
 .footer-image {
-  background-color: $almost-white;
+  background-color: colors.$almost-white;
+
   .overlay {
-    background-color: rgba(249, 249, 249,0.5);
+    background-color: rgba(249, 249, 249, 0.5);
   }
 }
+
 .footer-text {
-  color: $off-white;
-  background-color: $nav-background-dark;
+  color: colors.$off-white;
+  background-color: colors.$nav-background-dark;
 }
 
 .home-top {
   .profile-container {
-    h2, h3 {
-      color: $off-white;
-      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+
+    h2,
+    h3 {
+      color: colors.$off-white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
     }
+
     h3 {
       font-weight: lighter;
       font-family: 'Pacifico', cursive;
@@ -86,39 +103,57 @@ a {
 }
 
 .card {
+
   //border-color: $light-gray;
   .card-desc {
-    background-color: rgba(0,0,0,0.5);
-    color: $off-white;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: colors.$off-white;
+
     &.google {
       .service-logo {
-        background-color: $google-blue;
+        background-color: colors.$google-blue;
       }
     }
+
     &.squarespace {
       .service-logo {
-        background-color: $off-white;
+        background-color: colors.$off-white;
+      }
+    }
+
+    &.github {
+      .service-logo {
+        background-color: colors.$github-black;
       }
     }
   }
+
   // hover color effects
   a:hover {
     .card-desc {
       &.google {
-        color: $google-blue;
+        color: colors.$google-blue;
       }
+
+      &.github {
+        color: colors.$light-gray;
+      }
+
       &.facebook {
         // color: $facebook-blue;
-        color: lighten($facebook-blue,40%);
+        color: color.adjust(colors.$facebook-blue, $lightness: 40%);
       }
+
       &.youtube {
-        color: $youtube-red;
+        color: colors.$youtube-red;
       }
+
       &.deviantart {
-        color: $deviant-green;
+        color: colors.$deviant-green;
       }
+
       &.squarespace {
-        color: $light-gray;
+        color: colors.$light-gray;
       }
     }
   }
@@ -126,63 +161,81 @@ a {
 
 .resume {
   font-family: Inconsolata;
-  h1, h2, h3 {
+
+  h1,
+  h2,
+  h3 {
     font-family: Rubik;
   }
+
   section {
     h3 {
-      border-bottom: 2px solid $google-blue;
+      border-bottom: 2px solid colors.$google-blue;
       padding: 4px;
-      background-color: $lighter-gray-transparent;
+      background-color: colors.$lighter-gray-transparent;
     }
   }
+
   .card {
-    background-color: $off-white;
+    background-color: colors.$off-white;
   }
+
   .top-panel {
-    color: $off-white;
-    background-color: $nav-background-dark;
+    color: colors.$off-white;
+    background-color: colors.$nav-background-dark;
   }
+
   .border-panel {
-    color: $dark-gray;
-    background-color: $almost-white-transparent;
+    color: colors.$dark-gray;
+    background-color: colors.$almost-white-transparent;
   }
+
   .name {
     h2 {
-      background-color: $gray-transparent;
+      background-color: colors.$gray-transparent;
     }
   }
 }
 
 .twitter-data {
   font-family: Nunito;
-  h1,h2,h3,h4,h5 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: Pacifico;
   }
+
   section {
-    background-color: $lighter-gray-transparent;
+    background-color: colors.$lighter-gray-transparent;
   }
+
   .state-list-container {
     .state-list {
       color: white;
-      background-color: $google-blue;
+      background-color: colors.$google-blue;
     }
   }
 }
 
 .debis-resources {
   .button {
-    color: $off-white;
+    color: colors.$off-white;
     font-size: 1.2em;
     font-weight: 600;
   }
+
   .grade-sections {
-    background-color: $lighter-gray-transparent;
+    background-color: colors.$lighter-gray-transparent;
+
     h2 {
-      background-color: $off-black;
-      color: $off-white;
+      background-color: colors.$off-black;
+      color: colors.$off-white;
+
       &:after {
-        border-color: $off-black transparent transparent transparent;
+        border-color: colors.$off-black transparent transparent transparent;
       }
     }
   }

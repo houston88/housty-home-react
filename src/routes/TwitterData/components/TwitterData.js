@@ -99,6 +99,7 @@ class TwitterData extends React.Component {
       <div className='twitter-data'>
         <Spinner backdrop loading={this.props.twitterData.loading} />
         <div className='container'>
+          <section><h3>Note:</h3> The data stopped once Elon bought Twitter and started charging for the API.</section>
           <section>
             <h2>Happiest States Twitter Data</h2>
             <div className='range-control'>

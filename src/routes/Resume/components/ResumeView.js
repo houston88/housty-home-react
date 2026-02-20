@@ -58,13 +58,13 @@ export const ResumeView = (props) => (
           <div className='experience'>
             <h3>Experience</h3>
             <div>
-              <b>Everfox</b>, Cross Domain Systems<u>2019 - Present</u>
+              <b>Everfox</b>, Cross Domain Systems <u>2019 - Present</u>
             </div>
             <div>
               <b>Intuit</b>, ProConnect Group <u>2013 - 2019</u>
             </div>
             <div>
-              <b>Raytheon Company</b>, IIS <u>2000 - 2013</u>
+              <b>Raytheon (RTX)</b>, IIS <u>2000 - 2013</u>
             </div>
           </div>
         </section>
@@ -133,7 +133,7 @@ export const ResumeView = (props) => (
 
         <section>
           <h3>Leadership/Hobbies</h3>
-          Private pilot, terrible golfer, recreational soccer player, mountain biking, traveling, drone photography/videography
+          Private pilot, terrible golfer, science fiction nut, recreational soccer player, mountain biking, traveling, drone photography/videography
         </section>
 
       </div>
