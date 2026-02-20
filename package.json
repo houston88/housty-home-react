@@ -13,7 +13,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src tests",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "test": "vitest",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-fontawesome": "~1.6.1",
-    "react-parallax": "~1.5.1",
+    "react-parallax": "^3.5.2",
     "react-redux": "^7.2.9",
     "react-router": "~3.2.0",
     "react-simple-maps": "^3.0.0",
@@ -41,15 +44,12 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "@vitejs/plugin-react": "^4.7.0",
     "babel-eslint": "~7.2.3",
     "babel-plugin-istanbul": "^3.0.0",
-    "chai": "^3.4.1",
-    "chai-as-promised": "^6.0.0",
-    "chai-enzyme": "^0.6.1",
-    "cheerio": "^0.22.0",
-    "codecov": "^1.0.1",
-    "enzyme": "~2.9.1",
     "eslint": "~3.19.0",
     "eslint-config-standard": "^6.0.0",
     "eslint-config-standard-react": "~4.3.0",
@@ -57,7 +57,9 @@
     "eslint-plugin-promise": "~3.6.0",
     "eslint-plugin-react": "~6.10.3",
     "eslint-plugin-standard": "~2.3.1",
+    "jsdom": "^22.1.0",
     "sass": "^1.97.3",
-    "vite": "^5.4.21"
+    "vite": "^5.4.21",
+    "vitest": "^4.0.18"
   }
 }

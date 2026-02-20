@@ -1,22 +1,17 @@
 import React from 'react'
 import { HomeView } from 'routes/Home/components/HomeView'
-import { render } from 'enzyme'
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 
 describe('(View) Home', () => {
-  let _component
-
-  beforeEach(() => {
-    _component = render(<HomeView />)
-  })
-
   it('Renders a welcome message', () => {
-    const welcome = _component.find('h2')
-    expect(welcome).to.exist
-    expect(welcome.text()).to.match(/Harris Family Launch Pad/)
+    render(<HomeView />)
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toMatch(/Harris Family Launch Pad/)
   })
 
   it('Renders a header image', () => {
-    const headerImage = _component.find('img')
-    expect(headerImage).to.exist
+    const { container } = render(<HomeView />)
+    // Check for img tag
+    expect(container.querySelector('img')).toBeTruthy()
   })
 })

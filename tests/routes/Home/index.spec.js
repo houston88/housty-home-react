@@ -1,4 +1,5 @@
 import HomeRoute from 'routes/Home'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('(Route) Home', () => {
   let _component
@@ -8,10 +9,10 @@ describe('(Route) Home', () => {
   })
 
   it('Should return a route configuration object', () => {
-    expect(typeof HomeRoute).to.equal('object')
+    expect(typeof HomeRoute).toBe('object')
   })
 
   it('Should define a route component', () => {
-    expect(_component.type).to.equal('div')
+    expect(_component.type).toBe('div')
   })
 })
