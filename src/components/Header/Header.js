@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IndexLink, Link } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import './Header.scss'
 
 class Header extends React.Component {
@@ -34,21 +34,23 @@ class Header extends React.Component {
     if (this.state.scrollPos > 56) {
       headerClass += ' dark'
     }
+    const navClass = ({ isActive }) => (isActive ? 'route--active' : '')
+
     return (
       <div className={headerClass}>
         <div>
-          <IndexLink to='/' activeClassName='route--active'>
+          <NavLink to='/' className={navClass} end>
             Home
-          </IndexLink>
-          <Link to='/twitter-data' activeClassName='route--active'>
+          </NavLink>
+          <NavLink to='/twitter-data' className={navClass}>
             Twitter Data
-          </Link>
-          <Link to='/resume' activeClassName='route--active'>
+          </NavLink>
+          <NavLink to='/resume' className={navClass}>
             Resume
-          </Link>
-          <Link to='/debis-resources' activeClassName='route--active'>
+          </NavLink>
+          <NavLink to='/debis-resources' className={navClass}>
             Debi
-          </Link>
+          </NavLink>
         </div>
       </div>
     )

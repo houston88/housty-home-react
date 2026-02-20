@@ -13,6 +13,7 @@ import AngelaAdumbrate from '../assets/adumbrate-no1-clip.jpg'
 import AngelaInstagram from '../assets/angie-localffool-insta.png'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import AngieLocalFoolPage from '../assets/angie-localfool-neocities.png'
+import GithubImage from '../assets/alaska.jpg'
 import './HomeView.scss'
 
 // pure render component
@@ -57,35 +58,20 @@ export const HomeView = (props) => (
           url='https://www.facebook.com/debi.s.harris/photos'
           label='Debi&#39;s Facebook Photos' />
         <Card
-          image={KatieBeret}
-          brand='youtube'
-          url='https://www.youtube.com/channel/UCSTLbVq3kb-L4gleh23t-1Q'
-          label='Katie&#39;s YouTube Channel' />
-        <Card
-          image={KatieInsta}
-          brand='instagram'
-          url='https://www.instagram.com/kat__ur_mom/'
-          label='Katie&#39;s Instagram' />
-        <Card
-          image={AngieLocalFoolPage}
-          brand='google'
-          url='https://localfool.neocities.org'
-          label='Angie&#39;s LocalFool Neocities' />
-        <Card
           image={AngelaAdumbrate}
           brand='itch'
           url='https://jellyfishlover.itch.io/'
           label='Angie&#39;s Games and Zines' />
         <Card
-          image={AngelaInstagram}
-          brand='instagram'
-          url='https://www.instagram.com/localffool/'
-          label='Angie&#39;s (localfool) Instagram' />
-        <Card
           image={GunungBonitoImage}
           brand='squarespace'
           url='http://www.gunungbonito.com/'
           label='Gunung Bonito Services' />
+        <Card
+          image={GithubImage}
+          brand='github'
+          url='https://github.com/houston88'
+          label='Houston&#39;s GitHub' />
       </div>
 
     </div>

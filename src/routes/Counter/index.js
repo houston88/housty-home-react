@@ -1,18 +1,22 @@
+import React, { useEffect, useState } from 'react'
 import { injectReducer } from '../../store/reducers'
 
-export default (store) => ({
-  path: 'counter',
-  /*  Async getComponent is only invoked when route matches   */
-  getComponent(nextState, cb) {
-    /*  Webpack - use 'require.ensure' to create a split point
-        and embed an async module loader (jsonp) when bundling   */
-    import('./containers/CounterContainer').then((module) => {
+export default function CounterRoute({ store }) {
+  const [Component, setComponent] = useState(null)
+
+  useEffect(() => {
+    let isMounted = true;
+    Promise.all([
+      import('./containers/CounterContainer'),
+      import('./modules/counter')
+    ]).then(([module, reducerModule]) => {
       const Counter = module.default
-      import('./modules/counter').then((reducerModule) => {
-        const reducer = reducerModule.default
-        injectReducer(store, { key: 'counter', reducer })
-        cb(null, Counter)
-      })
+      const reducer = reducerModule.default
+      injectReducer(store, { key: 'counter', reducer })
+      if (isMounted) setComponent(() => Counter)
     })
-  }
-})
+    return () => { isMounted = false }
+  }, [store])
+
+  return Component ? <Component /> : null
+}

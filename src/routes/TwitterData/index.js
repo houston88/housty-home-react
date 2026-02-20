@@ -1,18 +1,22 @@
+import React, { useEffect, useState } from 'react'
 import { injectReducer } from '../../store/reducers'
 
-export default (store) => ({
-  path: 'twitter-data',
-  /*  Async getComponent is only invoked when route matches   */
-  getComponent(nextState, cb) {
-    /*  Webpack - use 'require.ensure' to create a split point
-        and embed an async module loader (jsonp) when bundling   */
-    import('./containers/TwitterDataContainer').then((module) => {
+export default function TwitterDataRoute({ store }) {
+  const [Component, setComponent] = useState(null)
+
+  useEffect(() => {
+    let isMounted = true;
+    Promise.all([
+      import('./containers/TwitterDataContainer'),
+      import('./modules/twitterData')
+    ]).then(([module, reducerModule]) => {
       const TwitterData = module.default
-      import('./modules/twitterData').then((reducerModule) => {
-        const reducer = reducerModule.default
-        injectReducer(store, { key: 'twitterData', reducer })
-        cb(null, TwitterData)
-      })
+      const reducer = reducerModule.default
+      injectReducer(store, { key: 'twitterData', reducer })
+      if (isMounted) setComponent(() => TwitterData)
     })
-  }
-})
+    return () => { isMounted = false }
+  }, [store])
+
+  return Component ? <Component /> : null
+}

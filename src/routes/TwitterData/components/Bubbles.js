@@ -104,9 +104,16 @@ class Bubbles extends React.Component {
         .on('drag', this.dragged)
         .on('end', this.dragended))
 
+    // Define color scale: Light blue to Dark blue
+    const colorScale = d3.scaleLinear()
+      .domain([0, d3.max(bubbleData, d => d.count)])
+      .range(['#CCE5FF', '#004C99'])
+
     const circles = node.append('circle')
       .attr('r', d => d.r)
-      .attr('fill', (d, i) => d3.schemeCategory10[i % 10]) // Use built-in color scheme
+      .attr('fill', d => colorScale(d.count))
+      .attr('stroke', '#fff')
+      .attr('stroke-width', '1px')
 
     const labels = node.append('text')
       .attr('class', 'bubble-label')
@@ -114,6 +121,7 @@ class Bubbles extends React.Component {
       .style('font-size', d => Math.max(8, rScale(d.count / 8)) + 'px')
       .text(d => d.name)
       .style('pointer-events', 'none')
+      .attr('fill', 'black')
 
     const simulation = d3.forceSimulation(bubbleData)
       .velocityDecay(0.2) // Lower decay for more "floaty" movement

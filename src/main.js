@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
-import createRoutes from './routes/index'
 import './styles/core.scss'
 
 // ========================================================
@@ -16,12 +15,10 @@ const store = createStore(initialState)
 // ========================================================
 const MOUNT_NODE = document.getElementById('root')
 
-const routes = createRoutes(store)
-
 const render = () => {
-  ReactDOM.render(
-    <AppContainer store={store} routes={routes} />,
-    MOUNT_NODE
+  const root = createRoot(MOUNT_NODE)
+  root.render(
+    <AppContainer store={store} />
   )
 }
 

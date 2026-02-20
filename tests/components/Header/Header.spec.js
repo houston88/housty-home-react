@@ -1,22 +1,22 @@
 import React from 'react'
+import { render, screen } from '@testing-library/react'
 import Header from 'components/Header'
-import { IndexLink } from 'react-router'
-import { shallow } from 'enzyme'
+import { BrowserRouter } from 'react-router-dom'
+import { describe, it, expect } from 'vitest'
 
 describe('(Component) Header', () => {
-  let _wrapper
 
-  beforeEach(() => {
-    _wrapper = shallow(<Header />)
-  })
+  it('Should render a Link to Home route', () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
 
-  describe('Navigation links...', () => {
-    it('Should render a Link to Home route', () => {
-      expect(_wrapper.contains(
-        <IndexLink to='/' activeClassName='route--active'>
-          Home
-        </IndexLink>
-      )).to.be.true
-    })
+    const homeLink = screen.getByText('Home')
+
+    expect(homeLink).toBeTruthy()
+    expect(homeLink.tagName).toBe('A')
+    expect(homeLink).toHaveAttribute('href', '/')
   })
 })

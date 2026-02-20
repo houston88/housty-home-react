@@ -11,6 +11,6 @@ For example:
 @import './themes/default';
 */
 
-@import 'colors';
-@import 'theme';
-@import 'responsive';
+@use 'colors';
+@use 'theme';
+@use 'responsive';

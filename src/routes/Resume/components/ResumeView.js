@@ -42,13 +42,13 @@ export const ResumeView = (props) => (
         <section className='qualifications'>
           <h3>Qualifications</h3>
           <span>Highly skilled software engineer with a proven ability to deliver
-          solid solutions on time. Specialties include web applications, user
-          interfaces and geospatial software development.</span>
+            solid solutions on time. Specialties include web applications, user
+            interfaces and geospatial software development.</span>
         </section>
         <section className='skills'>
           <h3>Skills</h3>
           <div className='resume-data-table'><label>GENERAL </label><span>Software Developer, Team Management, Software Architect</span></div>
-          <div className='resume-data-table'><label>LANGUAGES </label><span>JavaScript, Java, Groovy, Python, KML, CSS, XML, C/C++</span></div>
+          <div className='resume-data-table'><label>LANGUAGES </label><span>JavaScript, TypeScript, Go, Java, Python, CSS, SASS, XML, C/C++</span></div>
           <div className='resume-data-table'><label>FRAMEWORKS </label><span>React, AngularJs, jQuery, Grails, JEE, Spring, Hibernate, JPA, JDBC, Struts, JSP, SOA, Solr, Swing, Dojo</span></div>
           <div className='resume-data-table'><label>MIDDLEWARE </label><span>Node, Tomcat, Apache, Weblogic, JBoss</span></div>
           <div className='resume-data-table'><label>DATABASES </label><span>Cassandra, MongoDB, Oracle, PostgreSQL, MySQL/MariaDB, Lucene</span></div>
@@ -58,25 +58,25 @@ export const ResumeView = (props) => (
           <div className='experience'>
             <h3>Experience</h3>
             <div>
-              <b>Forcepoint</b>, Global Governments and Critical Infrastructure <u>2019 - Present</u>
+              <b>Everfox</b>, Cross Domain Systems <u>2019 - Present</u>
             </div>
             <div>
               <b>Intuit</b>, ProConnect Group <u>2013 - 2019</u>
             </div>
             <div>
-              <b>Raytheon Company</b>, IIS <u>2000 - 2013</u>
+              <b>Raytheon (RTX)</b>, IIS <u>2000 - 2013</u>
             </div>
           </div>
         </section>
 
         <div className='experience-sections'>
           <section>
-            <label>2019 - Present : Forcepoint High Speed Guard and Enterprise Management System</label>
+            <label>2019 - Present : Everfox High Speed Guard and Control Center</label>
             <ul>
-              <li>Architect and Tech Lead for Enterprise software project</li>
-              <li>Full stack development using React for UI and Java Spring Boot for REST services</li>
+              <li>Manager, Architect and Tech Lead for Enterprise software project</li>
+              <li>Full stack development using React for UI, Java Spring Boot, Python Flask, Node, Go and Rust</li>
               <li>Jenkins build pipelines for CI/CD</li>
-              <li>JPA, MariaDB, Webpack, Npm, JFrog Artifactory, Bitbucket, OpenLDAP, Protocol Buffers</li>
+              <li>JPA, MySQL, PostgreSQL, Vite, Npm, JFrog Artifactory, Bitbucket, OpenLDAP, Protocol Buffers</li>
             </ul>
           </section>
           <section>
@@ -133,8 +133,7 @@ export const ResumeView = (props) => (
 
         <section>
           <h3>Leadership/Hobbies</h3>
-          PMI Project management professional certified, EVMS level 2,
-          recreational soccer player, mountain biking, traveling, drone photography/videography
+          Private pilot, terrible golfer, science fiction nut, recreational soccer player, mountain biking, traveling, drone photography/videography
         </section>
 
       </div>

@@ -1,33 +1,23 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
+import { render, screen } from '@testing-library/react'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
+import { describe, it, expect } from 'vitest'
 
-function shallowRender (component) {
-  const renderer = TestUtils.createRenderer()
+describe('(Layout) Core', () => {
+  it('Should render as a <div> containing the nested route children.', () => {
+    const child = <h1 className='child'>Child</h1>
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<CoreLayout />}>
+            <Route index element={child} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    )
 
-  renderer.render(component)
-  return renderer.getRenderOutput()
-}
-
-function shallowRenderWithProps (props = {}) {
-  return shallowRender(<CoreLayout {...props} />)
-}
-
-describe('(Layout) Core', function () {
-  let _component
-  let _props
-  let _child
-
-  beforeEach(function () {
-    _child = <h1 className='child'>Child</h1>
-    _props = {
-      children : _child
-    }
-
-    _component = shallowRenderWithProps(_props)
-  })
-
-  it('Should render as a <div>.', function () {
-    expect(_component.type).to.equal('div')
+    expect(container.firstChild.tagName).toBe('DIV')
+    expect(screen.getByText('Child')).toBeTruthy()
   })
 })
