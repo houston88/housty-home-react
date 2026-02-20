@@ -9,20 +9,33 @@ class TimelineBar extends React.Component {
     this.width = 0
     this.updateDimensions = this.updateDimensions.bind(this)
     this.renderTimelineBar = this.renderTimelineBar.bind(this)
+    this.handleWheel = this.handleWheel.bind(this)
   }
 
   componentDidMount() {
     let elem = document.getElementById('happy-bar')
     this.width = elem.innerWidth || elem.clientWidth
     window.addEventListener('resize', this.updateDimensions)
+    elem.addEventListener('wheel', this.handleWheel, { passive: false })
     // render timeline bar chart
     this.renderTimelineBar(elem, this.width, this.props.happyData)
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions)
+    let elem = document.getElementById('happy-bar')
+    if (elem) {
+      elem.removeEventListener('wheel', this.handleWheel)
+    }
     d3.select('#happy-bar').select('svg').remove()
     d3.select('.d3-tip').remove()
+  }
+
+  handleWheel(e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault()
+      document.getElementById('happy-bar').scrollLeft += e.deltaY
+    }
   }
 
   updateDimensions() {
@@ -41,7 +54,13 @@ class TimelineBar extends React.Component {
 
   renderTimelineBar(elem, elemWidth, data) {
     // to support small screens
-    let screenWidth = elemWidth
+    // Calculate minimum required width based on data points
+    // data.length * (barWidth + padding) + margins
+    const minBarWidth = 4 // Minimum bar width in pixels
+    const minWidth = data.length * (minBarWidth * 1.15) + 50 // 1.15 accounts for 0.15 padding
+
+    // Use the larger of the element width or the calculated minimum width
+    let screenWidth = Math.max(elemWidth, minWidth)
 
     let margin = { top: 10, right: 10, bottom: 20, left: 35 },
       width = screenWidth - margin.left - margin.right,
@@ -60,17 +79,9 @@ class TimelineBar extends React.Component {
     const parseIso = d3.isoParse
 
     localData.forEach(function (d) {
-      if (typeof d.date === 'string') {
-        const parsed = parseIso(d.date) || parseDate(d.date) || parseDateLegacy(d.date) || new Date(d.date)
-        d.date = parsed instanceof Date && !isNaN(parsed) ? parsed : new Date() // Fallback to now or handle error?
-        // If it's still invalid, we might want to filter it out, but for now let's keep it safe.
-        if (isNaN(d.date)) {
-          console.error('Failed to parse date:', d.date)
-          d.date = new Date() // Failsafe
-        }
-      } else if (!(d.date instanceof Date)) {
-        // If it's not a string and not a date?
-        d.date = new Date()
+      if (typeof d.parseDate === 'string') {
+        const parsed = parseIso(d.parseDate)
+        d.date = parsed instanceof Date && !isNaN(parsed) ? parsed : new Date()
       }
       d.value = d.score
     })
@@ -86,7 +97,9 @@ class TimelineBar extends React.Component {
       .nice()
 
     let xAxis = d3.axisBottom(x)
-      .tickFormat(() => '') // Hide labels for now as there are too many
+      .tickFormat((i) => d3.timeFormat('%m/%d/%y')(localData[i].date))
+      // Show every 5th label to avoid crowding
+      .tickValues(x.domain().filter((d, i) => !(i % 5)))
 
     let yAxis = d3.axisLeft(y)
       .ticks(20)
@@ -110,6 +123,7 @@ class TimelineBar extends React.Component {
       .style('padding', '5px')
       .style('border-radius', '2px')
       .style('pointer-events', 'none')
+      .style('z-index', '1000')
 
     const formatDate = d3.timeFormat('%m/%d/%Y')
 
@@ -117,6 +131,11 @@ class TimelineBar extends React.Component {
       .attr('class', 'x axis')
       .attr('transform', 'translate(0,' + y(0) + ')')
       .call(xAxis)
+      .selectAll('text')
+      .style('text-anchor', 'end')
+      .attr('dx', '-.8em')
+      .attr('dy', '.15em')
+      .attr('transform', 'rotate(-65)')
 
     svg.append('g')
       .attr('class', 'y axis')

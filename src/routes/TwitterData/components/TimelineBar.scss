@@ -1,3 +1,10 @@
+/* Container for the timeline bar chart */
+#happy-bar {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
 .bar {
   fill: steelblue;
   shape-rendering: crispEdges;
@@ -24,6 +31,7 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
+  z-index: 1000; /* Ensure tooltip is above other elements */
 }
 
 /* Creates a small triangle extender for the tooltip */
