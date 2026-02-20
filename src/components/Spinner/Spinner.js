@@ -4,18 +4,23 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './Spinner.scss'
 
 class Spinner extends React.Component {
+  constructor(props) {
+    super(props)
+    this.nodeRef = React.createRef()
+  }
 
   render() {
     return <div>
       <TransitionGroup>
         {this.props.loading
           ? <CSSTransition
+            nodeRef={this.nodeRef}
             key="loading"
             timeout={500}
             classNames="loading-spinner"
             appear
           >
-            <div className={this.props.backdrop ? 'loading-spinner overlay' : 'loading-spinner'}>
+            <div ref={this.nodeRef} className={this.props.backdrop ? 'loading-spinner overlay' : 'loading-spinner'}>
               <svg className='spinner' width='65px' height='65px' viewBox='0 0 66 66' xmlns='http://www.w3.org/2000/svg'>
                 <circle className='path'
                   fill='none'

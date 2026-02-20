@@ -1,13 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import Header from '../../components/Header'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 
-export const CoreLayout = ({ children, location }) => (
+export const CoreLayout = ({ location }) => (
   <div>
     <Header location={location} />
     <div className='core-layout__viewport'>
-      {children}
+      <Outlet />
     </div>
     <div className='footer-image'>
       <div className='overlay'>&nbsp;</div>
@@ -21,7 +22,6 @@ export const CoreLayout = ({ children, location }) => (
 import PropTypes from 'prop-types'
 
 CoreLayout.propTypes = {
-  children: PropTypes.element.isRequired,
   location: PropTypes.object
 }
 

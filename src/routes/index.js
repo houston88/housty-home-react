@@ -1,4 +1,6 @@
-// We only need to import the modules necessary for initial render
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+
 import CoreLayout from '../layouts/CoreLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
@@ -6,41 +8,22 @@ import ResumeRoute from './Resume'
 import TwitterDataRoute from './TwitterData'
 import DebisResourcesRoute from './DebisResources'
 import DebisResourcesOrientationRoute from './DebisResourcesOrientation'
-import handouts from './handouts'
+import HandoutsRoute from './handouts'
 
-/*  Note: Instead of using JSX, we recommend using react-router
-    PlainRoute objects to build route definitions.   */
+export const AppRoutes = ({ store }) => (
+  <Routes>
+    <Route path="/" element={<CoreLayout />}>
+      <Route index element={<Home />} />
+      <Route path="counter" element={<CounterRoute store={store} />} />
+      <Route path="resume" element={<ResumeRoute />} />
+      <Route path="twitter-data" element={<TwitterDataRoute store={store} />} />
+      <Route path="debis-resources">
+        <Route index element={<DebisResourcesRoute />} />
+        <Route path="orientation" element={<DebisResourcesOrientationRoute />} />
+        <Route path="handouts/*" element={<HandoutsRoute />} />
+      </Route>
+    </Route>
+  </Routes>
+)
 
-export const createRoutes = (store) => ({
-  path        : '/',
-  component   : CoreLayout,
-  indexRoute  : Home,
-  childRoutes : [
-    CounterRoute(store),
-    ResumeRoute(store),
-    TwitterDataRoute(store),
-    DebisResourcesRoute(store),
-    DebisResourcesOrientationRoute(store),
-    handouts(store)
-  ]
-})
-
-/*  Note: childRoutes can be chunked or otherwise loaded programmatically
-    using getChildRoutes with the following signature:
-
-    getChildRoutes (location, cb) {
-      require.ensure([], (require) => {
-        cb(null, [
-          // Remove imports!
-          require('./Counter').default(store)
-        ])
-      })
-    }
-
-    However, this is not necessary for code-splitting! It simply provides
-    an API for async route definitions. Your code splitting should occur
-    inside the route `getComponent` function, since it is only invoked
-    when the route exists and matches.
-*/
-
-export default createRoutes
+export default AppRoutes

@@ -1,9 +1,10 @@
-export default (store) => ({
-  path: 'debis-resources/orientation',
-  getComponent(nextState, cb) {
-    import('./components/Orientation').then((module) => {
-      const Orientation = module.default
-      cb(null, Orientation)
-    })
-  }
-})
+import React, { lazy, Suspense } from 'react'
+const Orientation = lazy(() => import('./components/Orientation'))
+
+export default function DebisResourcesOrientationRoute() {
+  return (
+    <Suspense fallback={null}>
+      <Orientation />
+    </Suspense>
+  )
+}

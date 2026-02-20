@@ -1,11 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { browserHistory, Router } from 'react-router'
-import { Provider } from 'react-redux'
+import { BrowserRouter, useLocation } from 'react-router-dom'
+import { Provider, useDispatch } from 'react-redux'
+import AppRoutes from '../routes/index'
+import { updateLocation } from '../store/location'
+
+const LocationListener = () => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(updateLocation({ dispatch })(location.pathname))
+  }, [location, dispatch])
+
+  return null
+}
 
 class AppContainer extends Component {
   static propTypes = {
-    routes: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
   }
 
@@ -14,12 +26,15 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { routes, store } = this.props
+    const { store } = this.props
 
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
-          <Router history={browserHistory} children={routes} />
+          <BrowserRouter>
+            <LocationListener />
+            <AppRoutes store={store} />
+          </BrowserRouter>
         </div>
       </Provider>
     )

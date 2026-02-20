@@ -38,11 +38,6 @@ export const HomeView = (props) => (
 
       <div className='cards'>
         <Card
-          image={GithubImage}
-          brand='github'
-          url='https://github.com/houston88'
-          label='Houston&#39;s GitHub' />
-        <Card
           image={YouTubeImage}
           brand='youtube'
           url='https://www.youtube.com/user/houstyharris/videos'
@@ -72,6 +67,11 @@ export const HomeView = (props) => (
           brand='squarespace'
           url='http://www.gunungbonito.com/'
           label='Gunung Bonito Services' />
+        <Card
+          image={GithubImage}
+          brand='github'
+          url='https://github.com/houston88'
+          label='Houston&#39;s GitHub' />
       </div>
 
     </div>

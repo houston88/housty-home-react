@@ -18,8 +18,8 @@ The application consists of several main sections accessible via the navigation 
 ## Build and Run
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm
+- Node.js (v20.19.0 or higher required)
+- npm (v9.2.0 or higher recommended)
 
 ### Installation
 Clone the repository and install dependencies:
@@ -34,7 +34,7 @@ Start the development server with Hot Module Replacement (HMR):
 ```bash
 npm start
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### Production Build
 Build the application for production (output to `dist/`):
@@ -74,9 +74,11 @@ The project follows a feature-based structure for scalability:
 
 ## Technologies
 
-- **React 16**: UI Library
-- **Redux**: State Management
-- **Vite**: Build Tool & Dev Server
+- **React 18**: UI Library
+- **React Router 6**: Client-side Routing
+- **Redux 5**: State Management
+- **Vite 7**: Build Tool & Dev Server
+- **Vitest 4**: Unit Testing Framework
 - **D3 (v7)**: Data Visualizations
-- **React Simple Maps**: SVG Maps
+- **React Simple Maps (v3)**: SVG Maps
 - **Sass**: CSS Preprocessing
