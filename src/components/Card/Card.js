@@ -75,7 +75,11 @@ class Card extends React.Component {
       <div className='card'>
         <a href={this.props.url} target='_blank'>
           <div className='card-image'>
-            <img alt='image' src={this.props.image} />
+            {typeof this.props.image === 'string' ? (
+              <img alt='image' src={this.props.image} />
+            ) : (
+              this.props.image
+            )}
           </div>
           <div className={'card-desc' + (this.props.brand ? ` ${this.props.brand}` : '')}>
             {this.props.brand
@@ -94,7 +98,7 @@ import PropTypes from 'prop-types'
 
 Card.propTypes = {
   url: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   label: PropTypes.string.isRequired,
   brand: PropTypes.string
 }

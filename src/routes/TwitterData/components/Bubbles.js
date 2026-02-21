@@ -104,10 +104,10 @@ class Bubbles extends React.Component {
         .on('drag', this.dragged)
         .on('end', this.dragended))
 
-    // Define color scale: Light blue to Dark blue
+    // Define color scale: Neon Cyan to Neon Pink
     const colorScale = d3.scaleLinear()
       .domain([0, d3.max(bubbleData, d => d.count)])
-      .range(['#CCE5FF', '#004C99'])
+      .range(['#00f3ff', '#ff00ff'])
 
     const circles = node.append('circle')
       .attr('r', d => d.r)

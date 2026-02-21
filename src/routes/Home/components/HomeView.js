@@ -13,7 +13,7 @@ import AngelaAdumbrate from '../assets/adumbrate-no1-clip.jpg'
 import AngelaInstagram from '../assets/angie-localffool-insta.png'
 import GunungBonitoImage from '../assets/lng_ship_boston.jpg'
 import AngieLocalFoolPage from '../assets/angie-localfool-neocities.png'
-import GithubImage from '../assets/alaska.jpg'
+import MatrixAnimation from '../../../components/MatrixAnimation/MatrixAnimation'
 import './HomeView.scss'
 
 // pure render component
@@ -68,7 +68,7 @@ export const HomeView = (props) => (
           url='http://www.gunungbonito.com/'
           label='Gunung Bonito Services' />
         <Card
-          image={GithubImage}
+          image={<MatrixAnimation />}
           brand='github'
           url='https://github.com/houston88'
           label='Houston&#39;s GitHub' />

@@ -210,6 +210,10 @@ a {
 
   section {
     background-color: colors.$lighter-gray-transparent;
+
+    body.dark & {
+      background-color: colors.$dark-theme-section-bg;
+    }
   }
 
   .state-list-container {

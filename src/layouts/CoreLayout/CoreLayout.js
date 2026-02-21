@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../../components/Header'
+import PropTypes from 'prop-types'
+import { ThemeContext } from '../../contexts/ThemeContext'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 
-export const CoreLayout = ({ location }) => (
-  <div>
-    <Header location={location} />
-    <div className='core-layout__viewport'>
-      <Outlet />
-    </div>
-    <div className='footer-image'>
-      <div className='overlay'>&nbsp;</div>
-    </div>
-    <div className='footer-text'>
-      ©2026<span className='name'>&nbsp;Houston Harris</span>
-    </div>
-  </div>
-)
+export const CoreLayout = ({ location }) => {
+  const { theme } = useContext(ThemeContext)
 
-import PropTypes from 'prop-types'
+  return (
+    <div className={`layout-root ${theme}`}>
+      {theme === 'dark' && <div className='starscape'></div>}
+      <Header location={location} />
+      <div className='core-layout__viewport'>
+        <Outlet />
+      </div>
+      <div className={`footer-image ${theme}`}>
+        {theme === 'light' && <div className='overlay'>&nbsp;</div>}
+      </div>
+      <div className='footer-text'>
+        ©2026<span className='name'>&nbsp;Houston Harris</span>
+      </div>
+    </div>
+  )
+}
 
 CoreLayout.propTypes = {
   location: PropTypes.object

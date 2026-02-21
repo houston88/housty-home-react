@@ -1,5 +1,6 @@
 .debis-resources {
-  
+  padding: 24px 0;
+
   .top-panel {
     padding: 12px;
     margin: 0;
@@ -26,10 +27,12 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: none;
+
     h2 {
       padding: 1.0em;
       border-radius: 3px;
       position: relative;
+
       // bottom triangle:
       &:after {
         position: absolute;
@@ -47,18 +50,20 @@
   .button {
     padding: 1em;
   }
-  
+
   .cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
     .card {
       margin: 0 12px 24px 12px;
+
       @media (max-width: 768px) {
         margin: 0 0 12px 0;
-      } 
+      }
     }
   }
 

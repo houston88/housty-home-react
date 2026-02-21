@@ -4,6 +4,7 @@ import { BrowserRouter, useLocation } from 'react-router-dom'
 import { Provider, useDispatch } from 'react-redux'
 import AppRoutes from '../routes/index'
 import { updateLocation } from '../store/location'
+import { ThemeProvider } from '../contexts/ThemeContext'
 
 const LocationListener = () => {
   const location = useLocation()
@@ -30,12 +31,14 @@ class AppContainer extends Component {
 
     return (
       <Provider store={store}>
-        <div style={{ height: '100%' }}>
-          <BrowserRouter>
-            <LocationListener />
-            <AppRoutes store={store} />
-          </BrowserRouter>
-        </div>
+        <ThemeProvider>
+          <div style={{ height: '100%' }}>
+            <BrowserRouter>
+              <LocationListener />
+              <AppRoutes store={store} />
+            </BrowserRouter>
+          </div>
+        </ThemeProvider>
       </Provider>
     )
   }
