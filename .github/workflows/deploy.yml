@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Droplet via SCP
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.DROPLET_HOST }}
           username: ${{ secrets.DROPLET_USERNAME }}
