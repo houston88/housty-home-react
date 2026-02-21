@@ -1,0 +1,37 @@
+name: Deploy to Digital Ocean
+
+on:
+  push:
+    branches:
+      - master # Triggers on push to master branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        # Using legacy-peer-deps to accommodate our React 18 map dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Deploy to Droplet via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "dist/*"
+          target: "/var/www/housty-home-react" # Update this to the exact folder path on your Droplet!
+          strip_components: 1 # Strips the 'dist/' folder name so contents are placed directly inside the target
