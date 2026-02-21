@@ -14,6 +14,7 @@ The application consists of several main sections accessible via the navigation 
     - **Historical Timeline**: Bar chart showing happiness scores over time.
 - **Resume**: Professional resume page.
 - **Resources**: Various educational and orientation resources (`DebisResources`, `handouts`).
+- **Theme Support**: The application features a persistent Light/Dark mode toggle (with animated Starscape and Neon accents in dark mode).
 
 ## Build and Run
 
