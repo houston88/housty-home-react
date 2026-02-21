@@ -49,6 +49,17 @@ Preview the production build locally:
 npm run preview
 ```
 
+## Continuous Integration & Deployment
+
+This project uses **GitHub Actions** (`.github/workflows/deploy.yml`) to automatically build and deploy the `master` branch directly to a DigitalOcean Droplet via SSH.
+
+To enable this on a forked or cloned repository, add the following GitHub **Repository Secrets**:
+- `DROPLET_HOST`: Your Droplet's IP Address
+- `DROPLET_USERNAME`: SSH username (e.g. `root`)
+- `DROPLET_SSH_KEY`: The raw private SSH key to authenticate
+
+Additionally, **Dependabot** (`.github/dependabot.yml`) is natively configured to scan the repository weekly, automatically submitting Pull Requests for both `npm` and `github-actions` package updates to keep the environment secure.
+
 ## Code Layout
 
 The project follows a feature-based structure for scalability:
