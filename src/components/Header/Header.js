@@ -1,60 +1,54 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { ThemeContext } from '../../contexts/ThemeContext'
 import './Header.scss'
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleScroll = this.handleScroll.bind(this)
-    this.state = {
-      scrollPos: 0
+const Header = () => {
+  const [scrollPos, setScrollPos] = useState(0)
+  const { theme, toggleTheme } = useContext(ThemeContext)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPos(document.documentElement.scrollTop)
     }
-  }
 
-  componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll(e) {
-    // get scroll position
-    let scrollTop = document.documentElement.scrollTop
-    // set to state... need to debounce
-    this.setState({
-      scrollPos: scrollTop
-    })
-  }
-
-  render() {
-    let headerClass = 'header'
-    if (this.state.scrollPos > 56) {
-      headerClass += ' dark'
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
     }
-    const navClass = ({ isActive }) => (isActive ? 'route--active' : '')
+  }, [])
 
-    return (
-      <div className={headerClass}>
-        <div>
-          <NavLink to='/' className={navClass} end>
-            Home
-          </NavLink>
-          <NavLink to='/twitter-data' className={navClass}>
-            Twitter Data
-          </NavLink>
-          <NavLink to='/resume' className={navClass}>
-            Resume
-          </NavLink>
-          <NavLink to='/debis-resources' className={navClass}>
-            Debi
-          </NavLink>
-        </div>
+  let headerClass = 'header'
+  if (scrollPos > 56 || theme === 'dark') {
+    headerClass += ' dark'
+  }
+
+  const navClass = ({ isActive }) => (isActive ? 'route--active' : '')
+
+  return (
+    <div className={headerClass}>
+      <div className="nav-links">
+        <NavLink to='/' className={navClass} end>
+          Home
+        </NavLink>
+        <NavLink to='/twitter-data' className={navClass}>
+          Twitter Data
+        </NavLink>
+        <NavLink to='/resume' className={navClass}>
+          Resume
+        </NavLink>
+        <NavLink to='/debis-resources' className={navClass}>
+          Debi
+        </NavLink>
       </div>
-    )
-  }
+      <div className="theme-toggle">
+        <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
+      </div>
+    </div>
+  )
 }
 
 Header.propTypes = {

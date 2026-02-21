@@ -5,14 +5,48 @@
   left: 0;
   right: 0;
   height: 56px;
+
   @media print {
     // no header for print
     height: 0;
     display: none;
   }
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+
+  .nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+      }
+    }
+  }
 
   a {
     margin: 6px 12px;
@@ -24,9 +58,5 @@
     &.route--active {
       font-weight: 700;
     }
-    &:hover {
-      //font-weight: 500;
-    }
   }
-
 }

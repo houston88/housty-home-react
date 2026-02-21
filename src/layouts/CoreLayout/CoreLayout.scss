@@ -1,3 +1,5 @@
+@use "../../styles/colors";
+
 .container {
   width: 80%;
   text-align: center;
@@ -6,23 +8,98 @@
 
 .core-layout__viewport {
   padding-top: 56px;
+
   @media print {
     // no header for print, just some padding
     padding-top: 12px;
   }
+
   min-height: calc(100vh);
+}
+
+.starscape {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -200;
+  background-color: colors.$dark-theme-bg;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 50%;
+  }
+
+  // Generate a bunch of random "stars" using box-shadow
+  // In scss, we can build a string of shadows
+  $shadows-small: (
+  );
+
+@for $i from 1 through 300 {
+  $shadows-small: append($shadows-small, (random(2000) + px) (random(2000) + px) #fff, comma);
+}
+
+$shadows-medium: (
+);
+
+@for $i from 1 through 100 {
+  $shadows-medium: append($shadows-medium, (random(2000) + px) (random(2000) + px) #fff, comma);
+}
+
+&::before {
+  box-shadow: $shadows-small;
+  animation: twinkle 5s linear infinite;
+}
+
+&::after {
+  width: 3px;
+  height: 3px;
+  box-shadow: $shadows-medium;
+  animation: twinkle 7s linear infinite reverse;
+}
+}
+
+@keyframes twinkle {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
 }
 
 .footer-image {
   position: relative;
   z-index: -100;
-  //filter: blur(2px);
-  background-image: url('./assets/white_sands_alt.jpg');
   background-position: top;
   background-size: cover;
   width: 100%;
   height: 580px;
   margin-top: -510px;
+
+  &.dark {
+    background-image: url('./assets/buildings_night_2.png');
+    background-color: colors.$dark-theme-bg;
+  }
+
+  &.light {
+    background-image: url('./assets/white_sands_alt.jpg');
+  }
+
   .overlay {
     z-index: -99;
     position: absolute;
@@ -43,6 +120,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .name {
     font-family: 'Pacifico', cursive;
   }
