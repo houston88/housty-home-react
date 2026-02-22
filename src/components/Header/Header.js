@@ -33,7 +33,7 @@ const Header = () => {
           Home
         </NavLink>
         <NavLink to='/twitter-data' className={navClass}>
-          Twitter Data
+          <span className="hide-on-mobile">Twitter </span>Data
         </NavLink>
         <NavLink to='/resume' className={navClass}>
           Resume

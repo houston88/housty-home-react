@@ -6,12 +6,21 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 
+import SciFiShips from '../../components/SciFiShips/SciFiShips'
+import FlyingObjects from '../../components/FlyingObjects/FlyingObjects'
+
 export const CoreLayout = ({ location }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
     <div className={`layout-root ${theme}`}>
-      {theme === 'dark' && <div className='starscape'></div>}
+      {theme === 'dark' && (
+        <>
+          <div className='starscape'></div>
+          <SciFiShips />
+        </>
+      )}
+      {theme === 'light' && <FlyingObjects />}
       <Header location={location} />
       <div className='core-layout__viewport'>
         <Outlet />

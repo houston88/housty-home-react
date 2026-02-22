@@ -1,3 +1,5 @@
+@use "sass:math";
+@use "sass:list";
 @use "../../styles/colors";
 
 .container {
@@ -16,6 +18,8 @@
 
   min-height: calc(100vh);
 }
+
+
 
 .starscape {
   position: fixed;
@@ -43,14 +47,14 @@
   );
 
 @for $i from 1 through 300 {
-  $shadows-small: append($shadows-small, (random(2000) + px) (random(2000) + px) #fff, comma);
+  $shadows-small: list.append($shadows-small, (math.random(2000) + px) (math.random(2000) + px) #fff, comma);
 }
 
 $shadows-medium: (
 );
 
 @for $i from 1 through 100 {
-  $shadows-medium: append($shadows-medium, (random(2000) + px) (random(2000) + px) #fff, comma);
+  $shadows-medium: list.append($shadows-medium, (math.random(2000) + px) (math.random(2000) + px) #fff, comma);
 }
 
 &::before {
@@ -68,16 +72,14 @@ $shadows-medium: (
 
 @keyframes twinkle {
   0% {
-    transform: translateY(0);
     opacity: 1;
   }
 
   50% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   100% {
-    transform: translateY(-50px);
     opacity: 1;
   }
 }
@@ -94,6 +96,8 @@ $shadows-medium: (
   &.dark {
     background-image: url('./assets/buildings_night_2.png');
     background-color: colors.$dark-theme-bg;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 250px);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 250px);
   }
 
   &.light {
