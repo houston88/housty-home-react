@@ -1,0 +1,95 @@
+.flying-objects-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -199; // Same level as SciFiShips, but conditionally rendered
+    overflow: hidden;
+    pointer-events: none;
+
+    .object-wrapper {
+        position: absolute;
+        will-change: transform, left, right, top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.ltr {
+            animation-name: fly-ltr-light;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.rtl {
+            animation-name: fly-rtl-light;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.diagonal-ltr {
+            animation-name: fly-diagonal-ltr-light;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.diagonal-rtl {
+            animation-name: fly-diagonal-rtl-light;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .flying-svg {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@keyframes fly-ltr-light {
+    0% {
+        left: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        left: 110vw;
+        top: var(--start-top);
+    }
+}
+
+@keyframes fly-rtl-light {
+    0% {
+        right: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        right: 110vw;
+        top: var(--start-top);
+    }
+}
+
+@keyframes fly-diagonal-ltr-light {
+    0% {
+        left: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        left: 110vw;
+        top: var(--end-top);
+    }
+}
+
+@keyframes fly-diagonal-rtl-light {
+    0% {
+        right: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        right: 110vw;
+        top: var(--end-top);
+    }
+}

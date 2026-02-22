@@ -1,0 +1,117 @@
+.sci-fi-ships-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -199; // Above starscape (-200) but below everything else
+    overflow: hidden;
+    pointer-events: none; // Don't block clicks from interacting with the app
+
+    .ship-wrapper {
+        position: absolute;
+        will-change: transform, left, right, opacity, top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // Animation will be assigned inline for duration and delay
+
+        &.ltr {
+            animation-name: fly-ltr;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.rtl {
+            animation-name: fly-rtl;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.diagonal-ltr {
+            animation-name: fly-diagonal-ltr;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.diagonal-rtl {
+            animation-name: fly-diagonal-rtl;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.falcon-custom {
+            animation-name: fly-falcon;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .ship-svg {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@keyframes fly-ltr {
+    0% {
+        left: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        left: 110vw;
+        top: var(--start-top);
+    }
+}
+
+@keyframes fly-rtl {
+    0% {
+        right: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        right: 110vw;
+        top: var(--start-top);
+    }
+}
+
+@keyframes fly-diagonal-ltr {
+    0% {
+        left: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        left: 110vw;
+        top: var(--end-top);
+    }
+}
+
+@keyframes fly-diagonal-rtl {
+    0% {
+        right: -400px;
+        top: var(--start-top);
+    }
+
+    100% {
+        right: 110vw;
+        top: var(--end-top);
+    }
+}
+
+@keyframes fly-falcon {
+    0% {
+        left: -400px;
+        top: -10vh;
+        transform: scale(0.2); // Start small
+    }
+
+    100% {
+        left: 110vw;
+        top: 110vh; // End bottom-right
+        transform: scale(3.5); // End large
+    }
+}

@@ -23,6 +23,7 @@ export const HomeView = (props) => (
     <Parallax
       strength={300}
       bgImage={ParallaxTopImage}
+      className='parallax-hero'
     >
       <div className='profile-container'>
         <img
