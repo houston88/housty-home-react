@@ -33,6 +33,9 @@ export const WebMacView = () => (
                 </div>
             </div>
         </div>
+        <div className="mac-note">
+            This is awesome wasm work from <a href="https://infinitemac.org/" target="_blank" rel="noopener noreferrer">Infinite Mac</a>
+        </div>
     </div>
 )
 
