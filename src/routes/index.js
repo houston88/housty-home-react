@@ -6,6 +6,7 @@ import Home from './Home'
 import CounterRoute from './Counter'
 import ResumeRoute from './Resume'
 import TwitterDataRoute from './TwitterData'
+import WebMacRoute from './WebMac'
 import DebisResourcesRoute from './DebisResources'
 import DebisResourcesOrientationRoute from './DebisResourcesOrientation'
 import HandoutsRoute from './handouts'
@@ -17,6 +18,7 @@ export const AppRoutes = ({ store }) => (
       <Route path="counter" element={<CounterRoute store={store} />} />
       <Route path="resume" element={<ResumeRoute />} />
       <Route path="twitter-data" element={<TwitterDataRoute store={store} />} />
+      <Route path="web-mac" element={<WebMacRoute />} />
       <Route path="debis-resources">
         <Route index element={<DebisResourcesRoute />} />
         <Route path="orientation" element={<DebisResourcesOrientationRoute />} />

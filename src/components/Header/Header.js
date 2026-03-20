@@ -35,6 +35,9 @@ const Header = () => {
         <NavLink to='/twitter-data' className={navClass}>
           <span className="hide-on-mobile">Twitter </span>Data
         </NavLink>
+        <NavLink to='/web-mac' className={(props) => `${navClass(props)} hide-link-on-mobile`.trim()}>
+          Web Mac
+        </NavLink>
         <NavLink to='/resume' className={navClass}>
           Resume
         </NavLink>
