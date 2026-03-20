@@ -61,6 +61,12 @@
       font-weight: 700;
     }
 
+    &.hide-link-on-mobile {
+      @media(max-width: $tablet-width-min) {
+        display: none;
+      }
+    }
+
     .hide-on-mobile {
       @media(max-width: $tablet-width-min) {
         display: none;
