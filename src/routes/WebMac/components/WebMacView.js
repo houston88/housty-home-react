@@ -7,7 +7,7 @@ export const WebMacView = () => (
             <div className="mac-bezel">
                 <div className="mac-screen-container">
                     <iframe
-                        src="https://infinitemac.org/embed?disk=System+7.5&infinite_hd=true&machine=Quadra+650&paused=true&auto_pause=true"
+                        src="https://infinitemac.org/embed?disk=System+7.5&infinite_hd=true&machine=Quadra+650"
                         width="1024"
                         height="768"
                         allow="cross-origin-isolated"
