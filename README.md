@@ -20,8 +20,8 @@ The application consists of several main sections accessible via the navigation 
 ## Build and Run
 
 ### Prerequisites
-- Node.js (v20.19.0 or higher required)
-- npm (v9.2.0 or higher recommended)
+- Node.js (v24.22.1 or higher required)
+- npm (v11.0.0 or higher recommended)
 
 ### Installation
 Clone the repository and install dependencies:
