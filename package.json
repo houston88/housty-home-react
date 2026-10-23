@@ -4,8 +4,8 @@
   "description": "Vibe coding to a newer version",
   "main": "index.js",
   "engines": {
-    "node": ">=20.19.0",
-    "npm": ">=9.2.0"
+    "node": ">=24.22.1",
+    "npm": ">=11.0.0"
   },
   "scripts": {
     "start": "vite",
