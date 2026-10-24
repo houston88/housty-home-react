@@ -31,12 +31,12 @@ class TwitterData extends React.Component {
   }
 
   onChange(e) {
-    this.props.handleDateSelection(e.target.value)
+    this.props.handleDateSelection(Number(e.target.value))
   }
 
   renderTop10States() {
     let statesTable = [], sorted = []
-    if (this.props.twitterData.selectedIndex) {
+    if (this.props.twitterData.detailedData) {
       this.states.forEach(state => {
         if (this.props.twitterData.detailedData[state]) {
           statesTable.push({
@@ -90,7 +90,7 @@ class TwitterData extends React.Component {
     if (this.props.twitterData && this.props.twitterData.happiestStates) {
       dateSelectionsLength = this.props.twitterData.happiestStates.length
     }
-    if (dateSelectionsLength && this.props.twitterData.selectedIndex) {
+    if (dateSelectionsLength && this.props.twitterData.happiestStates[this.props.twitterData.selectedIndex]) {
       let sDate = new Date(this.props.twitterData.happiestStates[this.props.twitterData.selectedIndex].parseDate)
       selectedDateLabel = sDate.toLocaleDateString() + ' ' + sDate.toLocaleTimeString()
     }
@@ -115,7 +115,7 @@ class TwitterData extends React.Component {
               Based on <a href='http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010'>AFINN-111</a>
             </div>
             {this.renderTop10States()}
-            {this.props.twitterData.selectedIndex
+            {Object.keys(this.props.twitterData.detailedData).length
               ? <DataMap mapData={this.props.twitterData.detailedData} />
               : ''}
           </section>
