@@ -1,16 +1,18 @@
 import { getJSON } from './http'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+
 export const getHappiestStates = () => {
-  let url = 'https://housty.io/api/happiestStates'
+  let url = `${API_BASE_URL}/api/happiestStates`
   return getJSON(url)
 }
 
 export const getHappiestStateDetails = (id) => {
-  let url = 'https://housty.io/api/happiestStates/' + id
+  let url = `${API_BASE_URL}/api/happiestStates/${id}`
   return getJSON(url)
 }
 
 export const getHistoricalHapiness = () => {
-  let url = 'https://housty.io/api/happiestTimes'
+  let url = `${API_BASE_URL}/api/happiestTimes`
   return getJSON(url)
 }
