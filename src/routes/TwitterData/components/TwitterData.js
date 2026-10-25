@@ -86,24 +86,37 @@ class TwitterData extends React.Component {
 
   render() {
     let dateSelectionsLength = 0,
-      selectedDateLabel = ''
+      selectedDateLabel = '',
+      selectedSnapshot = null
     if (this.props.twitterData && this.props.twitterData.happiestStates) {
       dateSelectionsLength = this.props.twitterData.happiestStates.length
     }
     if (dateSelectionsLength && this.props.twitterData.happiestStates[this.props.twitterData.selectedIndex]) {
-      let sDate = new Date(this.props.twitterData.happiestStates[this.props.twitterData.selectedIndex].parseDate)
+      selectedSnapshot = this.props.twitterData.happiestStates[this.props.twitterData.selectedIndex]
+      let sDate = new Date(selectedSnapshot.parseDate)
       selectedDateLabel = sDate.toLocaleDateString() + ' ' + sDate.toLocaleTimeString()
     }
+
+    const isBlueSky = Boolean(
+      (selectedSnapshot && (selectedSnapshot.source === 'bluesky' || (selectedSnapshot.fileName && selectedSnapshot.fileName.startsWith('bsky')))) ||
+      (this.props.twitterData && this.props.twitterData.detailedData && this.props.twitterData.detailedData.source === 'bluesky')
+    )
+    const platformName = isBlueSky ? 'BlueSky' : 'Twitter'
+    const streamDescription = isBlueSky ? '10 minutes of BlueSky JetStream data' : '10 minutes of 1% Twitter stream'
 
     return (
       <div className='twitter-data'>
         <Spinner backdrop loading={this.props.twitterData.loading} />
         <div className='container'>
-          <section><h3>Note:</h3> The data stopped once Elon bought Twitter and started charging for the API.</section>
           <section>
-            <h2>Happiest States Twitter Data</h2>
+            <h3>Note:</h3>
+            <div>The Twitter data stopped once Elon bought Twitter and started charging for the API.</div>
+            <div>Started scraping BlueSky data on 10/25/2026 since it's free!</div>
+          </section>
+          <section>
+            <h2>Happiest States {platformName} Data</h2>
             <div className='range-control'>
-              <label>Based on 10 minutes of 1% Twitter stream ending at {selectedDateLabel}</label>
+              <label>Based on {streamDescription} ending at {selectedDateLabel}</label>
               <input type='range'
                 min='0' max={dateSelectionsLength - 1}
                 step='1'
@@ -123,7 +136,7 @@ class TwitterData extends React.Component {
             ? <section>
               <h2>Top 10 Hashtags</h2>
               <div className='range-control'>
-                <label>Based on 10 minutes of 1% Twitter stream from {selectedDateLabel}</label>
+                <label>Based on {streamDescription} from {selectedDateLabel}</label>
                 <input type='range'
                   min='0' max={dateSelectionsLength - 1}
                   step='1'
@@ -131,8 +144,10 @@ class TwitterData extends React.Component {
                   onChange={this.onChange} />
               </div>
               <div className='muted'>
-                Using same twitter data as above (tweets with geo data).
-                Not filtered by geography. Click and drag a circle, it's kinda fun.
+                {isBlueSky
+                  ? 'Using same BlueSky JetStream data as above.'
+                  : 'Using same twitter data as above (tweets with geo data).'}
+                {' '}Not filtered by geography. Click and drag a circle, it's kinda fun.
               </div>
               {this.renderHashtagsList()}
               <Bubbles hashtagData={this.props.twitterData.detailedData.hashtags} />
@@ -142,7 +157,7 @@ class TwitterData extends React.Component {
             this.props.twitterData.historicalHapiness.length
               ? <section>
                 <h2>Historical Happiness over Time</h2>
-                <div className='muted'>Based on twitter stream data collected.</div>
+                <div className='muted'>Based on Twitter and BlueSky stream data collected (BlueSky started on 10/25/2026).</div>
                 <TimelineBar happyData={this.props.twitterData.historicalHapiness} />
               </section>
               : ''

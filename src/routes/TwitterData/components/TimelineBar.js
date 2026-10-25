@@ -151,7 +151,11 @@ class TimelineBar extends React.Component {
     svg.selectAll('.bar')
       .data(localData)
       .enter().append('rect')
-      .attr('class', function (d) { return 'bar bar-' + (d.value < 0 ? 'negative' : 'positive') })
+      .attr('class', function (d) {
+        const polarity = d.value < 0 ? 'negative' : 'positive'
+        const sourceClass = d.source === 'bluesky' ? ' bar-bluesky' : ''
+        return 'bar bar-' + polarity + sourceClass
+      })
       .attr('x', function (d, i) { return x(i) })
       .attr('width', x.bandwidth())
       .attr('y', function (d) {
@@ -161,10 +165,12 @@ class TimelineBar extends React.Component {
         return Math.abs(y(d.value) - y(0))
       })
       .on('mouseover', (event, d) => {
+        const sourceLabel = d.source === 'bluesky' ? 'BlueSky' : 'Twitter'
         tooltip.transition()
           .duration(200)
           .style('opacity', .9)
         tooltip.html(
+          '<strong>Source: </strong><span>' + sourceLabel + '</span><br>' +
           '<strong>Date: </strong><span>' + formatDate(d.date) + '</span><br>' +
           '<strong>Score: </strong><span style="color:red">' + d.score + '</span>'
         )
