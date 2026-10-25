@@ -24,6 +24,14 @@
   fill: darkorange;
 }
 
+.bar-bluesky.bar-positive {
+  fill: #1185fe;
+}
+
+.bar-bluesky.bar-negative {
+  fill: #d946ef;
+}
+
 .d3-tip {
   line-height: 1;
   font-weight: bold;
